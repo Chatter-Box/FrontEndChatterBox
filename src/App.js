@@ -2,6 +2,8 @@
   import { Button, FormControl, InputLabel, Input } from '@material-ui/core';
   import './App.css';
   import Message from './components/Message';
+  import Icon from '@material-ui/core/Icon';
+  import { makeStyles } from '@material-ui/core/styles';
 
   
   //why are we using REACT instead of Angular? React is much more popular, it is growing and very in demand, it is super light weight
@@ -43,6 +45,13 @@
   //disabled prevents sending empty
   //components are a powerful part of react, resuable allows you to write it once, can pass 'props' (properties) in and it allows you to 
   //change message contents
+  const useStyles = makeStyles((theme) => ({
+    button: {
+      margin: theme.spacing(1),
+    },
+  }));
+
+  const classes = useStyles();
     return (
       <div className="App">
         <h1>Hello ChatterBox Chatters!</h1>
@@ -53,9 +62,11 @@
         <FormControl>
           <InputLabel >Message...</InputLabel>
           <Input value={input} onChange = {event => setInput(event.target.value)}/>
-          <Button disabled={!input} variant="contained" color="primary" type='submit' onClick={sendMessage}> Send </Button>
-        </FormControl>       
+          <Button disabled={!input} variant="contained" color="primary" className={classes.button} endIcon={<Icon>send</Icon>} type='submit' onClick={sendMessage}> Send </Button>
+          <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+          </FormControl>
         </form>
+        
         
           
         {
@@ -69,4 +80,5 @@
   }
 
   export default App;
+
 
