@@ -1,9 +1,9 @@
   import React, { useState, useEffect } from 'react';
   import { Button, FormControl, InputLabel, Input } from '@material-ui/core';
   import './App.css';
-  import Message from './Message';
-  import db from './firebase';
+  import Message from './components/Message';
 
+  
   //why are we using REACT instead of Angular? React is much more popular, it is growing and very in demand, it is super light weight
   //the angular framebook needs a lot more to get it going, everything in angular can be done with react 
   //using material UI because goog and more modern 
@@ -17,14 +17,14 @@
   //useEffect is a block of code that gets executed based on a condition 
   //you can have several useEffect, many that you need for specified condition
 
-  useEffect(() => {
+  // useEffect(() => {
   //run once when the app component loads
   //all the documents are held inside snapshot below (docs are metadata)
   //iterating through each document and getting the data from that document 
-    db.collection('messages').onSnapshot(snapshot => {
-      setMessages(snapshot.docs.map(doc => doc.data()))  
-    })
-  }, [] )
+  //   db.collection('messages').onSnapshot(snapshot => {
+  //     setMessages(snapshot.docs.map(doc => doc.data()))  
+  //   })
+  // }, [] )
 
   useEffect(() => {
     //run code here
@@ -34,7 +34,7 @@
   const sendMessage = (event) => {
     // all the logic to send a message goes here 
     event.preventDefault(); //prevents the refresh from taking place upon hitting enter or "send message" button
-    setMessages([...messages, {username: username, text: input}]) //this adds the new message to the end of the array
+    setMessages([...messages, {username: username, message: input}]) //this adds the new message to the end of the array
     setInput(''); //clear input so that when the message bar is cleared
   }
 
