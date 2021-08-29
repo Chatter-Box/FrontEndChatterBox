@@ -54,7 +54,8 @@
   const classes = useStyles();
     return (
       <div className="App">
-        <h1>Hello ChatterBox Chatters!</h1>
+        <h1>Hello Chatter!</h1>
+        <img src="ChatterBoxLogo.png" className="Logo" alt ="ChatterBox Logo" width="192" height="160"/>
         <h2>Welcome {username}</h2>
 
         <form>
