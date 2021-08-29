@@ -6,14 +6,14 @@
 
 .message__user {
     margin-left: auto;
-    color: rgb(238, 101, 101);
+    color: rgb(38, 129, 247);
     text-align: left !important;
 }
 
 .message__userCard {
-    background-color: #27a7fc !important;
+    background-color: #414c4e !important;
 }
 
 .message__guestCard {
-    background-color: #d0d0fae5 !important;
+    background-color: #c9b0d4e5 !important;
 }
