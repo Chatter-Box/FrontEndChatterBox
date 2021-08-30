@@ -1,4 +1,5 @@
   import React, { useState, useEffect } from 'react';
+  import SockJsClient from 'react-stomp';
   import { Button, FormControl, InputLabel, Input } from '@material-ui/core';
   import './App.css';
   import Message from './components/Message';
@@ -28,6 +29,9 @@
   //   })
   // }, [] )
 
+  const SOCKET_URL = 'http://localhost:8080/message';
+
+
   useEffect(() => {
     //run code here
     setUsername(prompt('Please enter your name')); 
@@ -40,6 +44,15 @@
     setInput(''); //clear input so that when the message bar is cleared
   }
 
+
+  let onConnected = () => {
+    console.log("Connected!!")
+  }
+
+  let onMessageReceived = (msg) => {
+    setMessages(msg.message);
+  }
+
   //below I have added capital b Button to change the look of the button, I had to add Material UI
   //Can go to the https://material-ui.com/components/buttons/
   //disabled prevents sending empty
@@ -50,6 +63,7 @@
       margin: theme.spacing(1),
     },
   }));
+
 
   const classes = useStyles();
     return (
@@ -68,7 +82,14 @@
           </FormControl>
         </form>
         
-        
+              <SockJsClient
+        url={SOCKET_URL}
+        topics={['/topic/message']}
+        onConnect={onConnected}
+        onDisconnect={console.log("Disconnected!")}
+        onMessage={msg => onMessageReceived(msg)}
+        debug={false}
+      />
           
         {
           messages.map(message => (
