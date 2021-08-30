@@ -29,7 +29,7 @@
   //   })
   // }, [] )
 
-  // const SOCKET_URL = 'http://localhost:8080/message';
+  //const SOCKET_URL = 'http://localhost:8080/message';
 
 
   useEffect(() => {
@@ -83,7 +83,7 @@
         </form>
         
               <SockJsClient
-       // url={SOCKET_URL}
+        url={SOCKET_URL}
         topics={['/topic/message']}
         onConnect={onConnected}
         onDisconnect={console.log("Disconnected!")}
