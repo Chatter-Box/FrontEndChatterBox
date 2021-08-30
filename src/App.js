@@ -29,7 +29,7 @@
   //   })
   // }, [] )
 
-  const SOCKET_URL = 'http://localhost:8080/message';
+  // const SOCKET_URL = 'http://localhost:8080/message';
 
 
   useEffect(() => {
