@@ -1,6 +1,9 @@
 {
   "name": "chatterbox",
   "version": "0.1.0",
+  "engines": {
+    "node": "16.7.x"
+  },
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.12.3",
@@ -41,4 +44,5 @@
       "last 1 safari version"
     ]
   }
+  
 }
