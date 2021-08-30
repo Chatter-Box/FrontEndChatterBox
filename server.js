@@ -6,8 +6,6 @@ function requireHTTPS(req, res, next) {
     next();
 }
 
-
-const path = require('path');
 const express = require('express');
 const app = express();
 
@@ -15,9 +13,7 @@ app.use(requireHTTPS);
 app.use(express.static('./dist/FrontEndChatterBox'));
 
 app.get('/*', (req, res) =>
-    res.sendFile(path.join(__dirname, './public', {root: 'dist/FrontEndChatterBox'});
+    res.sendFile('index.html', {root: 'dist/angular-tour-of-heroes/'}),
 );
-
-
 
 app.listen(process.env.PORT || 8000);
