@@ -1,9 +1,12 @@
   import React, { useState, useEffect } from 'react';
+  import SockJsClient from 'react-stomp';
   import { Button, FormControl, InputLabel, Input } from '@material-ui/core';
   import './App.css';
-  import Message from './Message';
-  import db from './firebase';
+  import Message from './components/Message';
+  import Icon from '@material-ui/core/Icon';
+  import { makeStyles } from '@material-ui/core/styles';
 
+  
   //why are we using REACT instead of Angular? React is much more popular, it is growing and very in demand, it is super light weight
   //the angular framebook needs a lot more to get it going, everything in angular can be done with react 
   //using material UI because goog and more modern 
@@ -17,14 +20,17 @@
   //useEffect is a block of code that gets executed based on a condition 
   //you can have several useEffect, many that you need for specified condition
 
-  useEffect(() => {
+  // useEffect(() => {
   //run once when the app component loads
   //all the documents are held inside snapshot below (docs are metadata)
   //iterating through each document and getting the data from that document 
-    db.collection('messages').onSnapshot(snapshot => {
-      setMessages(snapshot.docs.map(doc => doc.data()))  
-    })
-  }, [] )
+  //   db.collection('messages').onSnapshot(snapshot => {
+  //     setMessages(snapshot.docs.map(doc => doc.data()))  
+  //   })
+  // }, [] )
+
+  const SOCKET_URL = 'http://localhost:8080/message';
+
 
   useEffect(() => {
     //run code here
@@ -34,8 +40,17 @@
   const sendMessage = (event) => {
     // all the logic to send a message goes here 
     event.preventDefault(); //prevents the refresh from taking place upon hitting enter or "send message" button
-    setMessages([...messages, {username: username, text: input}]) //this adds the new message to the end of the array
+    setMessages([...messages, {username: username, message: input}]) //this adds the new message to the end of the array
     setInput(''); //clear input so that when the message bar is cleared
+  }
+
+
+  let onConnected = () => {
+    console.log("Connected!!")
+  }
+
+  let onMessageReceived = (msg) => {
+    setMessages(msg.message);
   }
 
   //below I have added capital b Button to change the look of the button, I had to add Material UI
@@ -43,9 +58,18 @@
   //disabled prevents sending empty
   //components are a powerful part of react, resuable allows you to write it once, can pass 'props' (properties) in and it allows you to 
   //change message contents
+  const useStyles = makeStyles((theme) => ({
+    button: {
+      margin: theme.spacing(1),
+    },
+  }));
+
+
+  const classes = useStyles();
     return (
       <div className="App">
-        <h1>Hello ChatterBox Chatters!</h1>
+        <h1>Hello Chatter!</h1>
+        <img src="ChatterBoxLogo.png" className="Logo" alt ="ChatterBox Logo" width="192" height="160"/>
         <h2>Welcome {username}</h2>
 
         <form>
@@ -53,10 +77,19 @@
         <FormControl>
           <InputLabel >Message...</InputLabel>
           <Input value={input} onChange = {event => setInput(event.target.value)}/>
-          <Button disabled={!input} variant="contained" color="primary" type='submit' onClick={sendMessage}> Send </Button>
-        </FormControl>       
+          <Button disabled={!input} variant="contained" color="primary" className={classes.button} endIcon={<Icon>send</Icon>} type='submit' onClick={sendMessage}> Send </Button>
+          <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+          </FormControl>
         </form>
         
+              <SockJsClient
+        url={SOCKET_URL}
+        topics={['/topic/message']}
+        onConnect={onConnected}
+        onDisconnect={console.log("Disconnected!")}
+        onMessage={msg => onMessageReceived(msg)}
+        debug={false}
+      />
           
         {
           messages.map(message => (
@@ -69,4 +102,5 @@
   }
 
   export default App;
+
 
