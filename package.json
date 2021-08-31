@@ -1,5 +1,5 @@
 {
-  "name": "FrontEndChatterBox",
+  "name": "chatterbox",
   "version": "0.1.0",
   "engines": {
     "node": "16.7.x"
@@ -43,5 +43,4 @@
       "last 1 safari version"
     ]
   }
-  
 }
