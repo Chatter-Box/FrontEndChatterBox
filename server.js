@@ -10,10 +10,10 @@ const express = require('express');
 const app = express();
 
 app.use(requireHTTPS);
-app.use(express.static('./dist/FrontEndChatterBox'));
+app.use(express.static('./dist/FrontEndChatterBox/'));
 
 app.get('/*', (req, res) =>
-    res.sendFile('index.html', {root: 'dist/angular-tour-of-heroes/'}),
+    res.sendFile('index.html', {root: 'dist/FrontEndChatterBox/'}),
 );
 
 app.listen(process.env.PORT || 8000);
