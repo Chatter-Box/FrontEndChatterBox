@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-  import React, { useState, useEffect } from 'react';
-  import { Button, FormControl, InputLabel, Input } from '@material-ui/core';
-  import './App.css';
-  import Message from './components/Message';
-  import Icon from '@material-ui/core/Icon';
-  import { makeStyles } from '@material-ui/core/styles';
-
-  
-  //why are we using REACT instead of Angular? React is much more popular, it is growing and very in demand, it is super light weight
-  //the angular framebook needs a lot more to get it going, everything in angular can be done with react 
-  //using material UI because goog and more modern 
-  function App() {
-=======
 import React, { useState, useEffect } from 'react';
 import { Button, FormControl, InputLabel, Input } from '@material-ui/core';
 import './App.css';
@@ -24,7 +10,6 @@ import { makeStyles } from '@material-ui/core/styles';
 //the angular framebook needs a lot more to get it going, everything in angular can be done with react 
 //using material UI because goog and more modern 
 function App() {
->>>>>>> main
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([{ username: 'tatiana', message: 'hey' }, { username: 'miles', message: 'hello' }]); //objects so that they can have a user and piece of text
   //in order to store anything we always need to think about state
