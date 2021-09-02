@@ -4,11 +4,24 @@ import './index.css';
 import App from './App';
 //import login from './login';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Login from './components/login/login';
+import { Register } from './components/register/register';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Switch>
+
+        <Route exact path='/message'> <App /> </Route>
+
+        <Route exact path='/'> <Login /> </Route>
+
+        <Route exact path='/register'> <Register /> </Route>
+
+      </Switch>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
