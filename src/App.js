@@ -5,8 +5,9 @@ import Message from './components/message/Message';
 import Icon from '@material-ui/core/Icon';
 import { makeStyles } from '@material-ui/core/styles';
 import SockJsClient from 'react-stomp';
+import axios from 'axios';
 
-const SOCKET_URL = 'http://localhost:3306/chatter_box';
+const SOCKET_URL = 'http://localhost:8080/message/all';
 
 
 //why are we using REACT instead of Angular? React is much more popular, it is growing and very in demand, it is super light weight
@@ -38,6 +39,8 @@ function App() {
   //     setMessages(snapshot.docs.map(doc => doc.data()))  
   //   })
   // }, [] )
+
+
 
   let onConnected = () => {
     console.log("Connected!!")
@@ -71,6 +74,14 @@ function App() {
   }
 
 
+  useEffect(() => {
+    // GET request using axios inside useEffect React hook
+    axios.get('/message/all')
+        .then(response => setMessages(response.data.total));
+
+// empty dependency array means this effect will only run once (like componentDidMount in classes)
+}, []);
+
   //below I have added capital b Button to change the look of the button, I had to add Material UI
   //Can go to the https://material-ui.com/components/buttons/
   //disabled prevents sending empty
@@ -103,7 +114,7 @@ function App() {
 
       <SockJsClient
         url={SOCKET_URL}
-        topics={['/topic/message']}
+        topics={['/message']}
         onConnect={onConnected}
         onDisconnect={console.log("Disconnected!")}
         onMessage={msg => onMessageReceived(msg)}
