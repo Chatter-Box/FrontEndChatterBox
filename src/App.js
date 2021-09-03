@@ -4,6 +4,9 @@ import './App.css';
 import Message from './components/message/Message';
 import Icon from '@material-ui/core/Icon';
 import { makeStyles } from '@material-ui/core/styles';
+import SockJsClient from 'react-stomp';
+
+const SOCKET_URL = 'http://localhost:8080/chat';
 
 
 //why are we using REACT instead of Angular? React is much more popular, it is growing and very in demand, it is super light weight
@@ -27,6 +30,14 @@ function App() {
   //     setMessages(snapshot.docs.map(doc => doc.data()))  
   //   })
   // }, [] )
+
+  let onConnected = () => {
+    console.log("Connected!!")
+  }
+
+  let onMessageReceived = (msg) => {
+    setMessages(msg.message);
+  }
 
   useEffect(() => {
     //run code here
@@ -69,7 +80,14 @@ function App() {
         </FormControl>
       </form>
 
-
+      <SockJsClient
+        url={SOCKET_URL}
+        topics={['/topic/message']}
+        onConnect={onConnected}
+        onDisconnect={console.log("Disconnected!")}
+        onMessage={msg => onMessageReceived(msg)}
+        debug={false}
+      />
 
       {
         messages.map(message => (
