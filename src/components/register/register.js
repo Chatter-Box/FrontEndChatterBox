@@ -1,6 +1,8 @@
 import { Grid, Paper, TextField, Button } from '@material-ui/core';
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import './register.css';
+
 
 export const Register = () => {
 
@@ -9,6 +11,7 @@ export const Register = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
+    const history = useHistory();
 
     const registerProfile = (event) => {
         event.preventDefault();
@@ -25,7 +28,7 @@ export const Register = () => {
                 email: email
             })
         });
-        resetTextFields();
+        history.push('/');
     }
 
     const resetTextFields = () => {
@@ -38,18 +41,23 @@ export const Register = () => {
 
     return (
         <Grid align='center'>
-            <Paper className='paper__style' variant='outlined'>
+            <Paper className='paper'>
                 <h1>Registration</h1>
-                <TextField label='Username' variant='outlined' fullWidth
-                value={username} onChange={(input) => setUsername(input.target.value)}/> <br/><br/>
-                <TextField label='Password' type='password' variant='outlined' fullWidth
-                value={password} onChange={(input) => setPassword(input.target.value)}/> <br/><br/>
-                <TextField label='First Name' variant='outlined' fullWidth
-                value={firstName} onChange={(input) => setFirstName(input.target.value)}/> <br/><br/>
-                <TextField label='Last Name' variant='outlined' fullWidth
-                value={lastName} onChange={(input) => setLastName(input.target.value)}/> <br/><br/>
-                <TextField label='Email' type='email' variant='outlined' fullWidth
+                <TextField label='Username' variant='outlined' fullWidth margin='normal' size='small'
+                value={username} onChange={(input) => setUsername(input.target.value)}/>
+                
+                <TextField label='Password' variant='outlined' fullWidth margin='normal' type='password' size='small'
+                value={password} onChange={(input) => setPassword(input.target.value)}/>
+                
+                <TextField label='First Name' variant='outlined' fullWidth margin='normal' size='small'
+                value={firstName} onChange={(input) => setFirstName(input.target.value)}/>
+                
+                <TextField label='Last Name' variant='outlined' fullWidth margin='normal' size='small'
+                value={lastName} onChange={(input) => setLastName(input.target.value)}/>
+                
+                <TextField label='Email' type='email' variant='outlined' fullWidth margin='normal' size='small'
                 value={email} onChange={(input) => setEmail(input.target.value)}/>
+                
                 <Button variant='contained' color='primary' fullWidth
                 onClick={registerProfile}>Register</Button>
             </Paper>

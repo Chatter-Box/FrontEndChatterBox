@@ -1,5 +1,6 @@
-.paper__style {
+.paper {
   width: 15rem;
-  position: relative;
-  height: 27rem;
+  height: auto;
+  padding: 1rem 3rem 3rem 3rem;
+  margin: 3rem;
 }
