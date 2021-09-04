@@ -5,7 +5,8 @@ import Message from './components/message/Message';
 import Icon from '@material-ui/core/Icon';
 import { makeStyles } from '@material-ui/core/styles';
 import SockJsClient from 'react-stomp';
-import axios from 'axios';
+import { GetRequestHooks } from './components/getRequestHook';
+
 
 const SOCKET_URL = 'http://localhost:8080/message/all';
 
@@ -73,15 +74,6 @@ function App() {
     //clear input so that when the message bar is cleared
   }
 
-
-  useEffect(() => {
-    // GET request using axios inside useEffect React hook
-    axios.get('/message/all')
-        .then(response => setMessages(response.data.total));
-
-// empty dependency array means this effect will only run once (like componentDidMount in classes)
-}, []);
-
   //below I have added capital b Button to change the look of the button, I had to add Material UI
   //Can go to the https://material-ui.com/components/buttons/
   //disabled prevents sending empty
@@ -114,13 +106,13 @@ function App() {
 
       <SockJsClient
         url={SOCKET_URL}
-        topics={['/message']}
+        topics={['/message/all']}
         onConnect={onConnected}
         onDisconnect={console.log("Disconnected!")}
         onMessage={msg => onMessageReceived(msg)}
         debug={false}
       />
-      
+      <GetRequestHooks/>
       
       {
         messages.map(message => (
