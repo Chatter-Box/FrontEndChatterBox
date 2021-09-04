@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import Button from './Button';
 import PropTypes from 'prop-types'
-import img2 from './images/sapo.PNG';
+import img2 from './sapo.PNG';
+import tres from './pin.png';
+import cuatro from './verde.png';
 import './Profile.css';
-import Card from './Card';
 import './card.css'
 import { useHistory } from 'react-router-dom'; 
 import Cards from './Cards';
-import { Grid } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Grid, Button, makeStyles, CardActions, Icon, FormControl } from "@material-ui/core";
 // import Headerss from './Headerss';
 //import Settings from './Settings';
 
@@ -40,7 +39,6 @@ const handleImageChange = (e) => {
 
 let history = useHistory();
 //history.push('/settings')
-
 
 
 
@@ -96,21 +94,83 @@ const classes = useStyles();
     </div> */}
 
 
-<Button color='paleturquoise' text='edit profile' onClick= {() =>{
+{/* <Button color='red' text=' Edit Profile' onClick= {() =>{
    history.push("/settings");
    }}
    > 
    Profile
-   </Button> 
+   </Button>  */}
 
-   <br></br> 
+   
+<CardActions> 
+   <Button variant="outlined" color='primary' size="small" onClick= {() =>{
+   history.push("/settings");
+   }}
+   > 
+   Edit Profile </Button>
+   </CardActions>
+   <br></br>
+   <br></br>
    <br></br>
    <br></br>
 
 <div>DM's</div>
 
-<img className= "card__img" width="60" height="40" src = {img2} alt=""/>
-     
+{/* ------------------------------------------------------------image  ONE---------------------------------------------------------------------------*/}
+<img className= "una" width="130" height="110" src = {tres} alt=""/>
+
+
+
+{/* ------------------------------------------------------------image  TWO---------------------------------------------------------------------------*/}
+<img className= "dos" width="130" height="110" src = {cuatro} alt=""/>
+
+
+
+
+{/* ------------------------------------------------------------  ---------------------------------------------------------------------------*/}
+
+<br></br>
+<Button className="botones" variant="outlined" margin-left="" color="secondary" nClick= {() =>{
+   history.push("/messages");
+   }}
+   > 
+  Messages </Button>
+  
+
+  <Button className="botonn" variant="outlined" margin-left="" color="primary" nClick= {() =>{
+   history.push("/messages");
+   }}
+   > 
+  Messages </Button>
+
+{/* <form>
+<FormControl>
+  <Button className="bot" variant="outlined" color="primary"  endIcon={<Icon>send</Icon>} type='submit' onClick= {() =>{
+   history.push("/messages");
+   }}
+   > 
+  Messages </Button>
+ <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</FormControl>
+</form> */}
+
+{/* ---------------------------------------------------------------------------------------------------------------------------------------------- */}
+
+{/* <form>
+<FormControl>
+  <Button className="bot2"  variant="outlined" color="primary"  endIcon={<Icon>send</Icon>} type='submit' onClick= {() =>{
+   history.push("/messages");
+   }}
+   > 
+  Messages </Button>
+ <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</FormControl>
+</form>
+
+
+   <br></br> */}
+
+
 
 <Grid
       container
@@ -121,19 +181,15 @@ const classes = useStyles();
       <Grid item sm={12} sm={8} md={4}>
         <Cards  />
       </Grid>
-      <Grid item sm={12} sm={8} md={4} >
-        <Cards  />
-      </Grid>
-  
-   
+    
     </Grid>
 
     
  
 
 
-
-   
+ 
+  
       {/* <img className= "card__img" width="60" height="40" src = {img2} alt=""/>
       <h3>paolaaaaa</h3> */}
      
@@ -148,22 +204,23 @@ const classes = useStyles();
 <div>aurqaaaaaaaaaaaa</div>
 
 <br></br>
-
+<CardActions>
+        <Button variant="outlined" color='secondary' size="large" onClick= {() =>{
+   history.push("/messages");
+   }}
+   > 
+   go to channel </Button>
+      </CardActions>
 <div>
   <button > 
     BUTTON
+   <div> 
+       </div> 
   </button>
 </div>
 
 
 
-<div> className='cudritos'
-  <div>
-<Card title = 'channel one'/>
-<Card title = 'channel two'/>
-<Card title = 'channel three'/>
-  </div>
-</div>
 
     </header>
   )
@@ -184,6 +241,9 @@ Header.propTypes = {
 
 
 export default Header
+
+
+
 
 
 
