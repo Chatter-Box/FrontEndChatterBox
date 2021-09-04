@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import Button from './Button';
 import PropTypes from 'prop-types'
-import img2 from './images/sapo.PNG';
+//import img2 from './images/sapo.PNG';
 import './Profile.css';
 import Card from './Card';
 import './card.css'
@@ -9,6 +8,10 @@ import { useHistory } from 'react-router-dom';
 import Cards from './Cards';
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import tres from './pin.png';
+import cuatro from './verde.png';
+import { Button } from "@material-ui/core";
+
 // import Headerss from './Headerss';
 //import Settings from './Settings';
 
@@ -95,12 +98,14 @@ const classes = useStyles();
         <a href="#about">About</a>
     </div> */}
 
+{/* -------------------------------------------------------------------------------------------------------------- */}
 
-<Button color='paleturquoise' text='edit profile' onClick= {() =>{
+
+<Button variant="outlined" size="small" color='paleturquoise' onClick= {() =>{
    history.push("/settings");
    }}
    > 
-   Profile
+   Edit Profile
    </Button> 
 
    <br></br> 
@@ -109,8 +114,20 @@ const classes = useStyles();
 
 <div>DM's</div>
 
-<img className= "card__img" width="60" height="40" src = {img2} alt=""/>
-     
+<img className= "img__one" width="130" height="110" src = {tres} alt=""/>
+<img className= "img__two" width="130" height="110" src = {cuatro} alt=""/> 
+<br></br>
+
+<Button className="otroS" variant="outlined" size="small" color='paleturquoise' onClick= {() =>{
+   history.push("/settings");
+   }}
+   > 
+   messages
+   </Button> 
+
+
+
+
 
 <Grid
       container
