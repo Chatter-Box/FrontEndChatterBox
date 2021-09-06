@@ -1,21 +1,19 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types'
-import img2 from './sapo.PNG';
 import tres from './pin.png';
 import cuatro from './verde.png';
 import './Profile.css';
-import './card.css'
-import { useHistory } from 'react-router-dom'; 
+import { useHistory, Link } from 'react-router-dom'; 
 import Cards from './Cards';
-import { Grid, Button, makeStyles, CardActions, Icon, FormControl } from "@material-ui/core";
+import { Grid, Button, makeStyles, CardActions } from "@material-ui/core";
 // import Headerss from './Headerss';
 //import Settings from './Settings';
 
 
 
-const onClick= () => {
-  console.log('click')
-}
+// const onClick= () => {
+//   console.log('click')
+// }
 const Header = ({ title, onAdd, showAdd }) => {
  // const location = useLocation()
 const[imagePreview, setImagePreview] = useState(null);
@@ -54,7 +52,10 @@ const classes = useStyles();
   return (
 
     <header className='header'>
-      <h1>{title}</h1>
+      <div>
+           <h1 className="h__one"> usr name</h1>
+        </div>
+   
       
       <div className="Profile">
  <div className ="container"> 
@@ -101,9 +102,9 @@ const classes = useStyles();
    Profile
    </Button>  */}
 
-   
+   {/* -------/////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
 <CardActions> 
-   <Button variant="outlined" color='primary' size="small" onClick= {() =>{
+   <Button className="bts" variant="outlined" size="small" onClick= {() =>{
    history.push("/settings");
    }}
    > 
@@ -114,34 +115,48 @@ const classes = useStyles();
    <br></br>
    <br></br>
 
-<div>DM's</div>
+<div>
+  <p className="p"> Open DM's</p>
+</div>
+<br></br>
+
+
 
 {/* ------------------------------------------------------------image  ONE---------------------------------------------------------------------------*/}
+<a href="https://open.spotify.com/artist/3Nrfpe0tUJi4K4DXYWgMUX">
 <img className= "una" width="130" height="110" src = {tres} alt=""/>
+</a> 
+
+
+
 
 
 
 {/* ------------------------------------------------------------image  TWO---------------------------------------------------------------------------*/}
+<Link to="https://open.spotify.com/artist/3Nrfpe0tUJi4K4DXYWgMUX">
 <img className= "dos" width="130" height="110" src = {cuatro} alt=""/>
-
+</Link>
 
 
 
 {/* ------------------------------------------------------------  ---------------------------------------------------------------------------*/}
 
 <br></br>
-<Button className="botones" variant="outlined" margin-left="" color="secondary" nClick= {() =>{
-   history.push("/messages");
+<Button className="button__one" variant="outlined" margin-left="" color="green" onClick= {() =>{
+   history.push("/message");
    }}
    > 
-  Messages </Button>
+  Name of user </Button>
+  
   
 
-  <Button className="botonn" variant="outlined" margin-left="" color="primary" nClick= {() =>{
-   history.push("/messages");
+  <Button className="button__two" variant="outlined" margin-left="" color="green" onClick= {() =>{
+   history.push("/message");
    }}
    > 
-  Messages </Button>
+  name of user </Button>
+
+  
 
 {/* <form>
 <FormControl>
@@ -169,7 +184,8 @@ const classes = useStyles();
 
 
    <br></br> */}
-
+ <br></br>
+   <br></br>
 
 
 <Grid
@@ -212,7 +228,7 @@ const classes = useStyles();
    go to channel </Button>
       </CardActions>
 <div>
-  <button > 
+  <button className="bo"> 
     BUTTON
    <div> 
        </div> 

@@ -35,10 +35,10 @@ export default function Login() {
         history.push('/register');
     }
 
-    // const goToAboutUs= (event) => {
-    //     event.preventDefault();
-    //     history.push('/aboutUs');
-    // }
+    const goToAboutUs= (event) => {
+        event.preventDefault();
+        history.push('/aboutUs');
+    }
 
     
     console.log(username);
@@ -60,8 +60,8 @@ export default function Login() {
 
                 <Link className='item__position link' onClick={goToRegistration}>Create a New Account</Link> <br/>
             </Paper>
-            <PersonIcon className='person__icon link' /*href='/aboutUs'*/ style={{fontSize: '100px'}}/>
-            {/* <Link className='person_icon link' onClick={goToAboutUs}></Link> <br/> */}
+            <PersonIcon className='person__icon link' onClick={goToAboutUs} style={{fontSize: '100px'}}/>
+            
 
         </Grid>
     );
