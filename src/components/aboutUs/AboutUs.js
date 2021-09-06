@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './aboutUs.css';
-import Icon from '@material-ui/core/Icon';
-import { Button, FormControl, InputLabel, Input } from '@material-ui/core';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-{/* <ArrowBackIcon className='ArrowBack_icon link'/>  */}
+// import Icon from '@material-ui/core/Icon';
+// import { Button, FormControl, InputLabel, Input } from '@material-ui/core';
+// import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+/* <ArrowBackIcon className='ArrowBack_icon link'/>  */
 
 export default function AboutUs() {
  
@@ -23,7 +23,7 @@ return (
   <div class="row">  
     <div class="column">
       <div class="card">
-        <img src="Tatiana.jpg" alt="Photo of Tatiana DeAngelo"/>
+        <img src="Tatiana.jpg" alt="Tatiana DeAngelo" width="350" height="316"/>
         <div class="container">
           <h2>Tatiana DeAngelo</h2>
           <p class="title">Co-Founder</p>
@@ -41,7 +41,7 @@ return (
   
     <div class="column">
       <div class="card">
-        <img src="Zachary Kitto.jpg" alt="Photo of Zachary Kitto" />
+        <img src="Zachary Kitto.jpg" alt="Zachary Kitto" width="350" height="316"/>
         <div class="container">
           <h2>Zachary Kitto</h2>
           <p class="title">Co-Founder</p>
@@ -53,7 +53,7 @@ return (
 
   <div class="column">
     <div class="card">
-      <img src="Jeremy .jpg" alt="Photo of Jeremy Sabina"/>
+      <img src="Jeremy .jpg" alt="Jeremy Sabina" width="350" height="316"/>
       <div class="container">
         <h2>Jeremy Sabina</h2>
         <p class="title">Co-Founder</p>
@@ -75,7 +75,7 @@ return (
 
   <div class="column">
     <div class="card">
-      <img src="laura.jpg" alt="Photo of Laura Bedolla Soria" />
+      <img src="lauraBS.jpg" alt="Laura Bedolla Soria" width="350" height="316"/>
       <div class="container">
         <h2>Laura Bedolla Soria"</h2>
         <p class="title">Co-Founder</p>
