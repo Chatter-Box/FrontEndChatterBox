@@ -1,29 +1,29 @@
 import React, { useState } from 'react';
-import './aboutus.css';
+import './aboutUs.css';
 import Icon from '@material-ui/core/Icon';
 import { Button, FormControl, InputLabel, Input } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+{/* <ArrowBackIcon className='ArrowBack_icon link'/>  */}
 
-<!DOCTYPE html>
+export default function AboutUs() {
+ 
+return (
+<div>
+    <img src="ChatterBoxLogo.png" className="Logo" alt="ChatterBox Logo" width="192" height="160" /> 
 
-<img src="ChatterBoxLogo.png" className="Logo" alt="ChatterBox Logo" width="192" height="160" /> 
-
-<!-- need to add href="/login" below -->
-<ArrowBackIcon className='ArrowBack_icon link'/> 
-
-<div class="about-section">
-    <h1>About Us Page</h1>
-    <p>ChatterBox was born out of the desire to create a better chat app. We wanted a fun and easy 
+    <div class="about-section">
+      <h1>About Us Page</h1>
+      <p>ChatterBox was born out of the desire to create a better chat app. We wanted a fun and easy 
       outlet to speak with our friends. We checked out the competition but nothing was up to snuff, 
       after some long nights and great collaboration Chatter was born! 
-    </p>
-  </div>
-  
-  <h2 style="text-align:center">Our Team</h2>
+      </p>
+    </div>
+    {/* style="text-align:center" */}
+  <h2 >Our Team</h2>
   <div class="row">  
     <div class="column">
       <div class="card">
-        <img src="Tatiana.jpg" alt="Photo of Tatiana DeAngelo" style="width:100%">
+        <img src="Tatiana.jpg" alt="Photo of Tatiana DeAngelo"/>
         <div class="container">
           <h2>Tatiana DeAngelo</h2>
           <p class="title">Co-Founder</p>
@@ -41,7 +41,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
   
     <div class="column">
       <div class="card">
-        <img src="Zachary Kitto.jpg" alt="Photo of Zachary Kitto" style="width:100%">
+        <img src="Zachary Kitto.jpg" alt="Photo of Zachary Kitto" />
         <div class="container">
           <h2>Zachary Kitto</h2>
           <p class="title">Co-Founder</p>
@@ -50,15 +50,14 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
         </div>
       </div>
     </div>
-  </div> 
 
   <div class="column">
     <div class="card">
-      <img src="Jeremy.jpg" alt="Photo of Jeremy Sabina" style="width:100%">
+      <img src="Jeremy .jpg" alt="Photo of Jeremy Sabina"/>
       <div class="container">
         <h2>Jeremy Sabina</h2>
         <p class="title">Co-Founder</p>
-        <p>Jeremy Sabina, Dual-Associates degrees in Culinary Arts and Baking & 
+        <p>Jeremy Sabina, Dual-Associates degrees in Culinary Arts and Baking and
             Pastry from the Culinary Institute of America. Experienced professional pastry 
             chef with extensive restaurant knowledge. Former sous chef at Evolution Craft 
             Brewery applied my ability to work under pressure while motivating and leading 
@@ -72,11 +71,11 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
       </div>
     </div>
   </div>
-</div> 
 
-<div class="column">
+
+  <div class="column">
     <div class="card">
-      <img src="laura.jpg" alt="Photo of Laura Bedolla Soria" style="width:100%">
+      <img src="laura.jpg" alt="Photo of Laura Bedolla Soria" />
       <div class="container">
         <h2>Laura Bedolla Soria"</h2>
         <p class="title">Co-Founder</p>
@@ -85,3 +84,8 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
       </div>
     </div>
   </div>
+  </div>
+</div>
+
+);
+}
