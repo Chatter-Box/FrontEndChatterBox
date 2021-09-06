@@ -228,7 +228,7 @@ const classes = useStyles();
    go to channel </Button>
       </CardActions>
 <div>
-  <button > 
+  <button className="bo"> 
     BUTTON
    <div> 
        </div> 
