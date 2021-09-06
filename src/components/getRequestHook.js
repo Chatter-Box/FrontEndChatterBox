@@ -1,26 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+// import React, { useState, useEffect } from 'react';
+// import axios from 'axios';
 
 
-function GetRequestHooks() {
-    const [Message, setMessages] = useState(null);
+// const instance = axios.create({
+//   baseURL: 'http://localhost:8080/message/',
+//   headers: {'X-Custom-Header': 'foobar'}
+// });
 
-    useEffect(() => {
-        // GET request using axios inside useEffect React hook
-        axios.get('/message/all')
-            .then(response => setMessages(response.data.total));
+
+// function GetRequestHooks() {
+
     
-    // empty dependency array means this effect will only run once (like componentDidMount in classes)
-    }, []);
+//     const getAllMessages = async () => {
 
-    return (
-        <div className="card text-center m-3">
-            <h5 className="card-header">GET Request with React Hooks</h5>
-            <div className="card-body">
-                All Chat Messages: {Message}
-            </div>
-        </div>
-    );
-}
+//         let messages = []
+//         messages = await instance.get('/all')
+//         .then(response => messages(response.data.total));
 
-export { GetRequestHooks };
+//     }
+
+//     useEffect(() => {
+//     GetRequestHooks()
+//         }, []);
+
+
+//     return (
+//         <div className="card text-center m-3">
+//             <h5 className="card-header">GET Request with React Hooks</h5>
+//             <div className="card-body">
+//                 All Chat Messages: {messages}
+//             </div>
+//         </div>
+//     );
+// }
+
+// export { GetRequestHooks };

@@ -106,7 +106,7 @@ function App() {
 
       <SockJsClient
         url={SOCKET_URL}
-        topics={['/message/all']}
+        topics={['/all']}
         onConnect={onConnected}
         onDisconnect={console.log("Disconnected!")}
         onMessage={msg => onMessageReceived(msg)}
