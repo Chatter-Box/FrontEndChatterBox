@@ -32,6 +32,7 @@
     justify-content: center;
     text-align: center;
     color: #fff;
+    margin-left: 10px;
 }
 
 .imgPreview input[type="file"]{
@@ -44,6 +45,25 @@
     font-weight: 500;
     padding: 6px 12px;
     cursor: pointer;
+}
+
+.una{
+    border-radius: 8%;
+    margin-left: 40px;
+ 
+}
+
+.dos{
+    border-radius: 8%;
+    margin-left: 30px;
+}
+
+.botones{
+    margin-left: 36px;
+}
+
+.botonn{
+    margin-left: 60px;
 }
 
 
