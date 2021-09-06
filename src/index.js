@@ -8,8 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './components/login/login';
 import { Register } from './components/register/register';
 import Profile from './components/profile/Profile';
-
-
+import AboutUs from './components/aboutUs/AboutUs'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -21,6 +20,8 @@ ReactDOM.render(
         <Route exact path='/'> <Login /> </Route>
 
         <Route exact path='/register'> <Register /> </Route>
+
+        <Route exact path='/aboutUs'> <AboutUs /> </Route>
 
         <Route path='/profile' component={Profile} />
 
