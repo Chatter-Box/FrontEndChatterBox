@@ -32,7 +32,7 @@
     justify-content: center;
     text-align: center;
     color: #fff;
-    margin-left: 10px;
+    margin-left: 15px;
 }
 
 .imgPreview input[type="file"]{
@@ -47,6 +47,10 @@
     cursor: pointer;
 }
 
+.h__one{
+    left: 20%;
+}
+
 .una{
     border-radius: 8%;
     margin-left: 40px;
@@ -58,12 +62,33 @@
     margin-left: 30px;
 }
 
-.botones{
-    margin-left: 36px;
+.p{
+    margin-left: 150px;  
 }
 
-.botonn{
-    margin-left: 60px;
+.button__one{
+    position:relative;
+  top: 0;
+  left: 34px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+   
+}
+
+
+.button__two{
+    position:absolute;
+  top: 0;
+  left:60px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+
+}
+
+.bts{
+    position:relative;
+    left: 9px;
+    background-color: white; 
+    color: black; 
+    border: 4px;
 }
 
 

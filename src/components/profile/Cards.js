@@ -9,15 +9,17 @@ import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 275,
+    minWidth: 270,
   },
   bullet: {
+    
     display: 'inline-block',
     margin: '0 2px',
     transform: 'scale(0.8)',
   },
   title: {
-    fontSize: 14,
+    
+    fontSize: 16,
   },
   pos: {
     marginBottom: 12,
@@ -26,7 +28,7 @@ const useStyles = makeStyles({
 
 export default function OutlinedCard() {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
+  //const bull = <span className={classes.bullet}>•</span>;
 
 
   let history = useHistory();
@@ -36,13 +38,13 @@ export default function OutlinedCard() {
     <Card className={classes.root} variant="outlined">
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          channel number one
+          Main Channel
         </Typography>
        
       </CardContent>
       <CardActions>
         <Button variant="outlined" color='secondary' size="large" onClick= {() =>{
-   history.push("/messages");
+   history.push("/message");
    }}
    > 
    go to channel </Button>
