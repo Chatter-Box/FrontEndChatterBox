@@ -19,8 +19,8 @@ export default function AboutUs() {
 return (
   <div>  
     <div>
-      <ArrowBackIcon className='ArrowBack_icon link' onClick={goToLogin}/>  
-      <p>Return To Login</p>
+      <p><ArrowBackIcon className='ArrowBack_icon link' onClick={goToLogin}/>  
+      Return To Login</p>
     </div>
       <br></br>
       {/* <img src="ChatterBoxLogo.png" className="Logo" alt="ChatterBox Logo" width="192" height="160" />  */}
