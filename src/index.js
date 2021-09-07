@@ -8,13 +8,20 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './components/login/login';
 import { Register } from './components/register/register';
 import Profile from './components/profile/Profile';
-import AboutUs from './components/aboutUs/AboutUs'
-import Settings from './components/settings/Settings'
+import AboutUs from './components/aboutUs/AboutUs';
+import Settings from './components/settings/Settings';
+import Home from "./components/Home/Home";
+import ChatRoom from "./components/ChatRoom/ChatRoom";
+
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Switch>
+
+        <Route exact path="/home" component={Home} />
+
+        <Route exact path="/:roomId" component={ChatRoom} />
 
         <Route exact path='/message'> <App /> </Route>
 
