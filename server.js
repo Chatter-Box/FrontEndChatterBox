@@ -1,37 +1,30 @@
-  const express = require("express");
-  const cors = require("cors");
-  const http = require("http");
-  const socketIO = require("socket.io"); 
+const server = require("http").createServer();
+const io = require("socket.io")(server, {
+  cors: {
+    origin: "*",
+  },
+});
+
+const PORT = 4000;
+const NEW_CHAT_MESSAGE_EVENT = "newChatMessage";
+
+io.on("connection", (socket) => {
   
-  // setup the port our backend app will run on
-  const PORT = 3030;
-  const NEW_MESSAGE_EVENT = "new-message-event";
-  
-  const app = express();
-  const server = http.createServer(app);
-  
-  const io = socketIO(server, {
-    cors: true,
-    origins:["localhost:3000"]
+  // Join a conversation
+  const { roomId } = socket.handshake.query;
+  socket.join(roomId);
+
+  // Listen for new messages
+  socket.on(NEW_CHAT_MESSAGE_EVENT, (data) => {
+    io.in(roomId).emit(NEW_CHAT_MESSAGE_EVENT, data);
   });
-  
-  app.use(cors());
-  
-  // Hardcoding a room name here. This is to indicate that you can do more by creating multiple rooms as needed.
-  const room = "general"
-  
-  io.on("connection", (socket) => {
-    socket.join(room);
-  
-    socket.on(NEW_MESSAGE_EVENT, (data) => {
-      io.in(room).emit(NEW_MESSAGE_EVENT, data);
-    });
-  
-    socket.on("disconnect", () => {
-      socket.leave(room);
-    });
+
+  // Leave the room if the user closes the socket
+  socket.on("disconnect", () => {
+    socket.leave(roomId);
   });
-  
-  server.listen(PORT, () => {
-    console.log(`listening on *:${PORT}`);
+});
+
+server.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
 });
