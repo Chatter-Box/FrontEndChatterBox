@@ -60,8 +60,10 @@ export default function Login() {
 
                 <Link className='item__position link' onClick={goToRegistration}>Create a New Account</Link> <br/>
             </Paper>
-            <PersonIcon className='person__icon link' onClick={goToAboutUs} style={{fontSize: '100px'}}/>
-            
+            <div>
+              <br></br>
+              <PersonIcon className='person__icon link' onClick={goToAboutUs} style={{fontSize: '100px'}}/> <p class="caption">About Us </p>
+            </div>
 
         </Grid>
     );
