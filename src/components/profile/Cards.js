@@ -34,7 +34,7 @@ export default function OutlinedCard() {
   let history = useHistory();
 
   return (
-   
+   <div>
     <Card className={classes.root} variant="outlined">
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -51,10 +51,44 @@ export default function OutlinedCard() {
       </CardActions>
     </Card>
 
+<br></br>
  
+<Card className={classes.root} variant="outlined">
+      <CardContent>
+        <Typography className={classes.title} color="textSecondary" gutterBottom>
+          Other channel
+        </Typography>
+       
+      </CardContent>
+      <CardActions>
+        <Button variant="outlined" color='secondary' size="large" onClick= {() =>{
+   history.push("/message");
+   }}
+   > 
+   go to channel </Button>
+      </CardActions>
+    </Card>
 
 
+    <br></br>
+ 
+<Card className={classes.root} variant="outlined">
+      <CardContent>
+        <Typography className={classes.title} color="textSecondary" gutterBottom>
+          food channel
+        </Typography>
+       
+      </CardContent>
+      <CardActions>
+        <Button variant="outlined" color='secondary' size="large" onClick= {() =>{
+   history.push("/message");
+   }}
+   > 
+   go to channel </Button>
+      </CardActions>
+    </Card>
 
+ </div>
 
 
   );
