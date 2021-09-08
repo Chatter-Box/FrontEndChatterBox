@@ -10,12 +10,26 @@ export default function Login() {
     const [password, setPassword] = useState('');
     const history = useHistory();
 
-    const checkIfUserExists = (event) => {
+    const checkIfUserExists = async (event) => {
         event.preventDefault();
         // look for the users info in the database
-        fetch(`/profile/login/${username}/${password}`)
-            .then(response => response.json())
-            .then(body => body.username === username ? takeUserToProfile() : wrongUsernameOrPassword());
+        try {
+            const response = await axios.post(`/profile/login/${username}/${password}`);
+            if (response.data.token) {
+            localStorage.setItem('user', JSON.stringify(response.data));
+            console.log(localStorage.getItem('user'));
+            // Take to profile
+        } 
+        } catch (error) {
+            setWrongCredentials(true);
+            setUsername('');
+            setPassword('');
+        }
+        
+        // fetch(`/profile/login/${username}/${password}`)
+        //     .then(response => response.json())
+        //     .then(body => body.username === username ? takeUserToProfile() : wrongUsernameOrPassword());
+
     }
 
     const takeUserToProfile = () => {

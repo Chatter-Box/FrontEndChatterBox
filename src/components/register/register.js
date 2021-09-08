@@ -13,22 +13,71 @@ export const Register = () => {
     const [email, setEmail] = useState('');
     const history = useHistory();
 
-    const registerProfile = (event) => {
+    const registerProfile = async (event) => {
         event.preventDefault();
-        fetch('/profile/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                firstName: firstName,
-                lastName: lastName,
-                username: username,
-                password: password,
-                email: email
-            })
-        });
-        history.push('/');
+        if (!emailValidation(email)) {
+            setInvalidEmail(true);
+            console.log('email')
+        } 
+        if (!passwordValidation(password)) {
+            setInvalidPassword(true);
+            console.log('pass')
+        } else {
+            console.log()
+            // const response = await axios.post('/profile/register',
+            //     { data: {
+            //         firstName: firstName,
+            //         lastName: lastName,
+            //         username: username,
+            //         password: password,
+            //         email: email
+            //         }
+            //     },
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     }
+            // );
+            const response = await axios({
+                method: 'post',
+                url: '/profile/register',
+                data: {
+                    firstName: firstName,
+                    lastName: lastName,
+                    username: username,
+                    password: password,
+                    email: email
+                },
+                headers: {'Content-Type': 'application/json'}
+            });
+            console.log(response);
+            if (response.created) {
+                history.push('/');
+            }
+                
+            // catch(error) {
+            //     console.log(error);
+            //     if (error.data.contains('username')) {
+            //         setInvalidUsernameMessage(error.data);
+            //     }
+            // }
+            
+        }
+        
+    }
+
+    const emailValidation = (email) => {
+        if (validator.isEmail(email)) return true;
+        return false;
+    }
+
+    const passwordValidation = (pasword) => {
+        if (password.length > 5) return true;
+        return false;
+    }
+
+    const usernameValidation = (username) => {
+        axios.get()
+
     }
 
     const resetTextFields = () => {
