@@ -139,25 +139,42 @@ const classes = useStyles();
 
 
 
-{/* ------------------------------------------------------------  ---------------------------------------------------------------------------*/}
+{/* ------------------------------------------------------------Name of user buttons  ---------------------------------------------------------------------------*/}
 
 <br></br>
-<Button className="button__one" variant="outlined" margin-left="" color="green" onClick= {() =>{
+<Button className="button__one" variant="outlined"  color="green" onClick= {() =>{
    history.push("/message");
    }}
    > 
   Name of user </Button>
   
-  
+ 
 
-  <Button className="button__two" variant="outlined" margin-left="" color="green" onClick= {() =>{
+  <Button className="button__two" variant="outlined" color="green" onClick= {() =>{
    history.push("/message");
    }}
    > 
   name of user </Button>
 
-  
+  <br></br>
+   <br></br>
+   <br></br>
+   <br></br>
 
+
+   <Link to="https://open.spotify.com/artist/3Nrfpe0tUJi4K4DXYWgMUX">
+<img className= "dos" width="130" height="110" src = {cuatro} alt=""/>
+</Link>
+
+<br></br>
+<Button className="button__one" variant="outlined"  color="green" onClick= {() =>{
+   history.push("/message");
+   }}
+   > 
+  Name of user </Button>
+
+  <br></br>
+   <br></br>
 {/* <form>
 <FormControl>
   <Button className="bot" variant="outlined" color="primary"  endIcon={<Icon>send</Icon>} type='submit' onClick= {() =>{
@@ -200,6 +217,10 @@ const classes = useStyles();
     
     </Grid>
 
+
+   
+
+
     
  
 
@@ -217,7 +238,7 @@ const classes = useStyles();
       
 <br></br>
 
-<div>aurqaaaaaaaaaaaa</div>
+{/* <div>aurqaaaaaaaaaaaa</div>
 
 <br></br>
 <CardActions>
@@ -227,13 +248,16 @@ const classes = useStyles();
    > 
    go to channel </Button>
       </CardActions>
-<div>
+
+
+
+      
   <button className="bo"> 
     BUTTON
    <div> 
        </div> 
   </button>
-</div>
+ */}
 
 
 
