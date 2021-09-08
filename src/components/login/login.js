@@ -10,7 +10,7 @@ export default function Login() {
     const [password, setPassword] = useState('');
     const history = useHistory();
 
-    const checkIfUserExists = (event) => {
+    const checkIfUserExists = async (event) => {
         event.preventDefault();
         // look for the users info in the database
         try {

@@ -13,7 +13,7 @@ export const Register = () => {
     const [email, setEmail] = useState('');
     const history = useHistory();
 
-    const registerProfile = (event) => {
+    const registerProfile = async (event) => {
         event.preventDefault();
         if (!emailValidation(email)) {
             setInvalidEmail(true);
