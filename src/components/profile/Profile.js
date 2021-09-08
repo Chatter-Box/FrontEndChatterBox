@@ -132,10 +132,13 @@ const classes = useStyles();
 
 
 
+
 {/* ------------------------------------------------------------image  TWO---------------------------------------------------------------------------*/}
 <Link to="https://open.spotify.com/artist/3Nrfpe0tUJi4K4DXYWgMUX">
 <img className= "dos" width="130" height="110" src = {cuatro} alt=""/>
 </Link>
+
+
 
 
 
