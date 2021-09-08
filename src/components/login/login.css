@@ -27,3 +27,9 @@
     padding: 1rem;
     margin-bottom: 0;
 }
+
+.caption {
+    position: absolute;
+    bottom: -5px;
+    right: 22px;
+}

@@ -17,6 +17,7 @@ return (
     <div class="col-md-3 pt-0">
       <div class="list-group list-group-flush account-settings-links">
         <a class="list-group-item list-group-item-action active" data-toggle="list" href="#account-general">General</a>
+        <br></br>
         <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-change-password">Change password</a>
         
       </div>
@@ -26,7 +27,7 @@ return (
             <div class="tab-pane fade active show" id="account-general">
 
               <div class="card-body media align-items-center">
-                <img src="blank-profile.png" alt="A Blank Profile Avatar" class="d-block ui-w-80"/>
+                <img src="blank-profile.png" alt="A Blank Profile Avatar" class="d-block ui-w-80" width="200" height="200"/>
                 <div class="media-body ml-4">
                   <label class="btn btn-outline-primary">
                     Upload new photo
