@@ -1,4 +1,5 @@
 import React from "react";
+import {Button, FormControl, Input} from "@material-ui/core";
 
 import "./ChatRoom.css";
 import useChat from "../useChat/useChat";
@@ -34,15 +35,21 @@ const ChatRoom = (props) => {
           ))}
         </ol>
       </div>
-      <textarea
+
+      <form>
+      <FormControl>
+      <Input      
         value={newMessage}
         onChange={handleNewMessageChange}
         placeholder="Write message..."
         className="new-message-input-field"
       />
-      <button onClick={handleSendMessage} className="send-message-button">
+      
+      <Button disabled={!newMessage} onClick={handleSendMessage} type="submit" className="send-message-button">
         Send
-      </button>
+      </Button>
+      </FormControl>
+      </form>
     </div>
   );
 };

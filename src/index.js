@@ -21,7 +21,7 @@ ReactDOM.render(
 
         <Route exact path="/home" component={Home} />
 
-        <Route exact path="/:roomId" component={ChatRoom} />
+        <Route exact path="/chatroom/:roomId" component={ChatRoom} />
 
         <Route exact path='/message'> <App /> </Route>
 
