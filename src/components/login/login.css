@@ -1,9 +1,9 @@
 .paper__style {
     top: 20px;
-    width: 40%;
-    min-height: 60vh;
+    width: 20rem;
+    min-height: 80vh;
     position: relative;
-    padding: 5%;
+    padding: 3rem;
 }
 
 .item__position {
@@ -21,6 +21,13 @@
     bottom: 15px;
     right: 6px;
 }
+
+.invalid__credentials {
+    background-color: red;
+    border-radius: 10%;
+    padding: 1rem;
+    margin-bottom: 0;
+} 
 
 .caption {
     position: absolute;

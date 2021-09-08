@@ -1,6 +1,8 @@
 import { Grid, Paper, TextField, Button } from '@material-ui/core';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import validator from 'validator';
+import axios from 'axios';
 import './register.css';
 
 
@@ -11,6 +13,11 @@ export const Register = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
+    const [invalidEmail, setInvalidEmail] = useState(false);
+    const [invalidUsername, setInvalidUsername] = useState(false);
+    const [invalidPassword, setInvalidPassword] = useState(false);
+    const [invalidEmailMessage, setInvalidEmailMessage] = useState('That is an invalid email');
+    const [invalidUsernameMessage, setInvalidUsernameMessage] = useState('');
     const history = useHistory();
 
     const registerProfile = async (event) => {
@@ -92,9 +99,11 @@ export const Register = () => {
         <Grid align='center'>
             <Paper className='paper'>
                 <h1>Registration</h1>
+                <p className='error'>{invalidUsernameMessage}</p>
                 <TextField label='Username' variant='outlined' fullWidth margin='normal' size='small'
                 value={username} onChange={(input) => setUsername(input.target.value)}/>
                 
+                <p className='error'>That is an invalid password</p>
                 <TextField label='Password' variant='outlined' fullWidth margin='normal' type='password' size='small'
                 value={password} onChange={(input) => setPassword(input.target.value)}/>
                 
@@ -104,6 +113,7 @@ export const Register = () => {
                 <TextField label='Last Name' variant='outlined' fullWidth margin='normal' size='small'
                 value={lastName} onChange={(input) => setLastName(input.target.value)}/>
                 
+                <p className='error'>{invalidEmailMessage}</p>
                 <TextField label='Email' type='email' variant='outlined' fullWidth margin='normal' size='small'
                 value={email} onChange={(input) => setEmail(input.target.value)}/>
                 

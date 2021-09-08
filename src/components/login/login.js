@@ -1,7 +1,8 @@
 import { FormControl, FormHelperText, Input, InputLabel, Grid, TextField, Button, Link, Paper } from '@material-ui/core';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PersonIcon from '@material-ui/icons/Person';
 import { useHistory } from 'react-router';
+import axios from 'axios';
 import './login.css';
 
 export default function Login() {
@@ -9,6 +10,9 @@ export default function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const history = useHistory();
+    const [messages, setMessages] = useState({});
+    const [isLoading, setLoading] = useState(true);
+    const [wrongCredentials, setWrongCredentials] = useState(false);
 
     const checkIfUserExists = async (event) => {
         event.preventDefault();
