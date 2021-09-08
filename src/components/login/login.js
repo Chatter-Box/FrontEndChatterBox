@@ -22,6 +22,8 @@ export default function Login() {
             if (response.data.token) {
             localStorage.setItem('user', JSON.stringify(response.data));
             console.log(localStorage.getItem('user'));
+            history.push(`/profile/${response.data.username}`);
+
             // Take to profile
         } 
         } catch (error) {

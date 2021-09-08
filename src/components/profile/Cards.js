@@ -75,13 +75,13 @@ export default function OutlinedCard() {
 <Card className={classes.root} variant="outlined">
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          food channel
+          Create channel
         </Typography>
        
       </CardContent>
       <CardActions>
         <Button variant="outlined" color='secondary' size="large" onClick= {() =>{
-   history.push("/message");
+   history.push("/createchannel");
    }}
    > 
    go to channel </Button>

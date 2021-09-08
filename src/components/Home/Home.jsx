@@ -14,13 +14,13 @@ const Home = () => {
     <div className="home-container">
       <input
         type="text"
-        placeholder="Room"
+        placeholder="Channel Name"
         value={roomName}
         onChange={handleRoomNameChange}
         className="text-input-field"
       />
       <Link to={`chatroom/${roomName}`} className="enter-room-button">
-        Join room
+        Create Channel
       </Link>
     </div>
   );

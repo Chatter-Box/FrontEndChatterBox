@@ -19,7 +19,7 @@ ReactDOM.render(
     <Router>
       <Switch>
 
-        <Route exact path="/home" component={Home} />
+        <Route exact path="/createchannel" component={Home} />
 
         <Route exact path="/chatroom/:roomId" component={ChatRoom} />
 
