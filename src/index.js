@@ -7,6 +7,8 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './components/login/login';
 import { Register } from './components/register/register';
+import { SearchBar } from './components/direct-messages/searchBar';
+import { DmChat } from './components/direct-messages/dmChat';
 import Profile from './components/profile/Profile';
 import AboutUs from './components/aboutUs/AboutUs';
 import Settings from './components/settings/Settings';
@@ -25,10 +27,14 @@ ReactDOM.render(
 
         <Route exact path='/message'> <App /> </Route>
 
+        <Route exact path='/searchBar'> <SearchBar/> </Route>
+
         <Route exact path='/'> <Login /> </Route>
 
         <Route exact path='/register'> <Register /> </Route>
 
+        <Route exact path='/:dmChatName' component={DmChat} />
+        
         <Route exact path='/aboutUs'> <AboutUs /> </Route>
 
         <Route exact path='/Settings'> <Settings/> </Route>
