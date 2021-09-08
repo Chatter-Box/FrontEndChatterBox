@@ -1,6 +1,7 @@
 .paper__style {
     top: 20px;
-    width: 20rem;
+    width: 25%;
+    min-width: 400px;
     min-height: 80vh;
     position: relative;
     padding: 3rem;

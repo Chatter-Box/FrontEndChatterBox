@@ -80,7 +80,7 @@ export default function Login() {
             </Paper>
             <div>
               <br></br>
-              <PersonIcon className='person__icon link' onClick={goToAboutUs} style={{fontSize: '100px'}}/> <p class="caption">About Us </p>
+              <PersonIcon className='person__icon link' onClick={goToAboutUs} style={{fontSize: '100px'}}/> <p className="caption">About Us </p>
             </div>
 
         </Grid>

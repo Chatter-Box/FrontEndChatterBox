@@ -57,7 +57,7 @@ export const Register = () => {
                 headers: {'Content-Type': 'application/json'}
             });
             console.log(response);
-            if (response.created) {
+            if (response.data) {
                 history.push('/');
             }
                 

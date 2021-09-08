@@ -211,7 +211,7 @@ const classes = useStyles();
       className={classes.gridContainer}
       justify="flex-end"
     >
-      <Grid item sm={12} sm={8} md={4}>
+      <Grid item lg={12} md={8} sm={4}>
         <Cards  />
       </Grid>
     
