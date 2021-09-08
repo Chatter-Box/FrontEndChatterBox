@@ -121,9 +121,9 @@ const classes = useStyles();
 
 
 {/* ------------------------------------------------------------image  ONE---------------------------------------------------------------------------*/}
-{/* <a href="https://open.spotify.com/artist/3Nrfpe0tUJi4K4DXYWgMUX">
+{<a href="https://open.spotify.com/artist/3Nrfpe0tUJi4K4DXYWgMUX">
 <img className= "una" width="130" height="110" src = {tres} alt=""/>
-</a>  */}
+</a> }
 
 
 
@@ -131,9 +131,9 @@ const classes = useStyles();
 
 
 {/* ------------------------------------------------------------image  TWO---------------------------------------------------------------------------*/}
-{/* <Link to="https://open.spotify.com/artist/3Nrfpe0tUJi4K4DXYWgMUX">
+{<Link to="https://open.spotify.com/artist/3Nrfpe0tUJi4K4DXYWgMUX">
 <img className= "dos" width="130" height="110" src = {cuatro} alt=""/>
-</Link> */}
+</Link>}
 
 
 
