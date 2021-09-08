@@ -4,16 +4,3 @@
   padding: 1rem 3rem 3rem 3rem;
   margin: 3rem;
 }
-
-p {
-    margin-top: 0px;
-    margin-bottom: 10px;
-}
-
-.error {
-    background-color: red;
-    border-style: inset;
-    border-radius: 10%;
-    padding: .5rem;
-    margin-bottom: 0;
-}
