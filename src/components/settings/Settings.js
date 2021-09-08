@@ -17,7 +17,7 @@ return (
     <div class="col-md-3 pt-0">
       <div class="list-group list-group-flush account-settings-links">
         <a class="list-group-item list-group-item-action active" data-toggle="list" href="#account-general">General</a>
-        <br></br>
+        
         <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-change-password">Change password</a>
         
       </div>
@@ -52,10 +52,6 @@ return (
                 <div class="form-group">
                   <label class="form-label">E-mail</label>
                   <input type="text" class="form-control mb-1" value=""/>
-                  {/* <!-- <div class="alert alert-warning mt-3">
-                    Your email is not confirmed. Please check your inbox.<br>
-                    <a href="javascript:void(0)">Resend confirmation</a>
-                  </div> --> */}
                 </div>
               </div>
 
