@@ -57,6 +57,11 @@ export default function Login() {
     //         .then(response => setMessages(response.data))
     //         .finally(() => setLoading(false));
     // },[] )
+
+    const goToAboutUs= (event) => {
+        event.preventDefault();
+        history.push('/aboutUs');
+    }
     
     console.log(username);
     console.log(password);
@@ -84,7 +89,9 @@ export default function Login() {
 
                 <Link className='item__position link' onClick={goToRegistration}>Create a New Account</Link> <br/>
             </Paper>
-            <PersonIcon className='person__icon link' /*href='Link to the about me page'*/ style={{fontSize: '100px'}}/>
+            <PersonIcon className='person__icon link' onClick={goToAboutUs} style={{fontSize: '100px'}}/>
+            
+
         </Grid>
     );
 }
