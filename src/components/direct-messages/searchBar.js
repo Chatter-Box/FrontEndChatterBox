@@ -31,8 +31,20 @@ export const SearchBar = () => {
         console.log(response);
     }, []);
 
-    const handleClick = (name) => {
-        history.push(`/${username}&${name}`);
+    const handleClick = async (profile) => {
+        const response = await axios.post('channel-controller/create', {
+            headers: { 
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            },
+            data: { 
+                'name': `${username}&${profile.username}`,
+                'type': 'DM',
+                'profileList': [user, profile],
+             }
+        })
+        console.log(response.data)
+        history.push(`/${username}&${profile.username}`);
     }
 
     // useEffect( () => {
@@ -49,7 +61,7 @@ export const SearchBar = () => {
                 if (search === '') return 
                 if (profile.username.toLowerCase().includes(search.toLowerCase())) return profile;
             })
-            .map(profile => <p onClick={() => handleClick(profile.username)} key={profile.id}>{profile.username}</p>)}
+            .map(profile => <p onClick={() => handleClick(profile)} key={profile.id}>{profile.username}</p>)}
         </>
     );
 }

@@ -31,3 +31,25 @@ p {
     padding-bottom: .5rem;
     padding-top: .5rem;
 }
+
+.new-message-input-field {
+    max-height: 50%;
+    font-size: 1.3em;
+    padding: 8px 12px;
+    resize: none;
+    position: fixed;
+    bottom: 2rem;
+    left: 32rem;
+}
+
+.send-message-button {
+    font-size: 28px;
+    font-weight: 600;
+    color: white;
+    background: #31a24c;
+    padding: 21px 12px;
+    border: none;
+    position: fixed;
+    bottom: 2rem;
+    left: 48rem;
+}

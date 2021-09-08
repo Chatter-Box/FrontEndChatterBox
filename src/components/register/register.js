@@ -30,17 +30,31 @@ export const Register = () => {
             setInvalidPassword(true);
             console.log('pass')
         } else {
-            const response = await axios.post('/profile/register', {
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+            console.log()
+            // const response = await axios.post('/profile/register',
+            //     { data: {
+            //         firstName: firstName,
+            //         lastName: lastName,
+            //         username: username,
+            //         password: password,
+            //         email: email
+            //         }
+            //     },
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     }
+            // );
+            const response = await axios({
+                method: 'post',
+                url: '/profile/register',
                 data: {
                     firstName: firstName,
                     lastName: lastName,
                     username: username,
                     password: password,
                     email: email
-                }
+                },
+                headers: {'Content-Type': 'application/json'}
             });
             console.log(response);
             if (response.created) {
@@ -64,7 +78,7 @@ export const Register = () => {
     }
 
     const passwordValidation = (pasword) => {
-        if (password.length > 10) return true;
+        if (password.length > 5) return true;
         return false;
     }
 

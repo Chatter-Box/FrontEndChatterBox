@@ -21,7 +21,7 @@ export default function Login() {
             const response = await axios.post(`/profile/login/${username}/${password}`);
             if (response.data.token) {
             localStorage.setItem('user', JSON.stringify(response.data));
-            console.log(localStorage.getItem('profile'));
+            console.log(localStorage.getItem('user'));
             // Take to profile
         } 
         } catch (error) {
