@@ -19,7 +19,8 @@ const ChatRoom = (props) => {
     setNewMessage(event.target.value);
   };
 
-  const handleSendMessage = () => {
+  const handleSendMessage = (event) => {
+    event.preventDefault();
     sendMessage(newMessage);
     setNewMessage("");
   };
