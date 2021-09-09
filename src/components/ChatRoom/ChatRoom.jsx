@@ -34,10 +34,11 @@ const ChatRoom = (props) => {
     
     <div className="chat-room-container">
       <h1 className="room-name">Channel: {roomId}</h1>
+      <h2 className="go-back"><ArrowBackIcon className='ArrowBack_icon link' onClick={goToProfile}/>  
+      Return To Profile </h2>
       <div className="messages-container">
       <div>
-      <p><ArrowBackIcon className='ArrowBack_icon link' onClick={goToProfile}/>  
-      Return To Profile</p>
+
     </div>
         <ol className="messages-list">
           {messages.map((message, i) => (
