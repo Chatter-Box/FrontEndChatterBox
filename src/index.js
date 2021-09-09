@@ -12,6 +12,8 @@ import AboutUs from './components/aboutUs/AboutUs';
 import Settings from './components/settings/Settings';
 import Home from "./components/Home/Home";
 import ChatRoom from "./components/ChatRoom/ChatRoom";
+import { SearchBar } from './components/direct-messages/searchBar';
+import { DmChat } from './components/direct-messages/dmChat';
 
 
 ReactDOM.render(
@@ -34,6 +36,10 @@ ReactDOM.render(
         <Route exact path='/Settings'> <Settings/> </Route>
 
         <Route path='/profile' component={Profile} />
+
+        <Route exact path='/searchbar' component={SearchBar} />
+
+        <Route exact path='/dm/:dmChatName' component={DmChat} />
 
       </Switch>
     </Router>

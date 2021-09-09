@@ -13,7 +13,6 @@ export const SearchBar = () => {
     const [profilesFound, setProfilesFound] = useState([]);
     const [loading, setLoading] = useState(true);
     const history = useHistory();
-    console.log(user);
 
     const handleChange = (event) => {
         setSearch(event.target.value)
@@ -21,7 +20,7 @@ export const SearchBar = () => {
 
     useEffect (async () => {
         console.log(token);
-        const response = await axios.get('profile/findAll', {
+        const response = await axios.get('http://localhost:8080/profile/findAll', {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -32,19 +31,37 @@ export const SearchBar = () => {
     }, []);
 
     const handleClick = async (profile) => {
-        const response = await axios.post('channel-controller/create', {
-            headers: { 
-                'Authorization': `Bearer ${token}`,
-                'Content-Type': 'application/json'
-            },
-            data: { 
-                'name': `${username}&${profile.username}`,
-                'type': 'DM',
-                'profileList': [user, profile],
-             }
-        })
+        const name1 = `${username}&${profile.username}`;
+        const name2 = `${profile.username}&${username}`;
+        const channelExists1 = await axios({
+            method: 'get',
+            url: `http://localhost:8080/channel-controller/exists/${name1}`,
+            headers: { 'Authorization': `Bearer ${token}`}
+        });
+        if (channelExists1.data) {
+            history.push(`/dm/${name1}`)
+            return
+        }
+        const channelExists2 = await axios({
+            method: 'get',
+            url: `http://localhost:8080/channel-controller/exists/${name2}`,
+            headers: { 'Authorization': `Bearer ${token}`}
+        });
+        if (channelExists2.data) {
+            history.push(`/dm/${name2}`)
+            return
+        }
+        const response = await axios({
+                method: 'post',
+                url: 'http://localhost:8080/channel-controller/create',
+                data: {
+                    name: name1,
+                    type: 'DM'
+                },
+                headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`}
+            });
         console.log(response.data)
-        history.push(`/${username}&${profile.username}`);
+        history.push(`/dm/${name1}`);
     }
 
     // useEffect( () => {

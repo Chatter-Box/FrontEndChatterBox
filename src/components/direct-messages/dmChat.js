@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { SearchBar } from './searchBar';
 import axios from 'axios';
-import { tokenizer } from 'acorn';
+import useChat from "../useChat/useChat";
+import { FormControl, Button, Input } from '@material-ui/core';
+import '../ChatRoom/ChatRoom.css';
 
 export const DmChat = (props) => {
     
@@ -9,7 +11,8 @@ export const DmChat = (props) => {
     console.log(token);
     const { dmChatName } = props.match.params;
     const [newMessage, setNewMessage] = useState("");
-    const { messages, sendMessage } = useState(dmChatName);
+    const { messages, sendMessage } = useChat(dmChatName);
+    const [messageHistory, setMessageHistory] = useState([]);
     console.log(dmChatName);
     console.log(dmChatName.substring(dmChatName.indexOf('&' + 1)));
     
@@ -17,20 +20,50 @@ export const DmChat = (props) => {
         setNewMessage(event.target.value);
     };
 
-    const handleSendMessage = () => {
+    const handleSendMessage = async (event) => {
+        event.preventDefault();
         sendMessage(newMessage);
-        setNewMessage("");
+        const response = await axios({
+            method: 'post',
+            url: 'http://localhost:8080/message/create',
+            data: {
+                profileSentFrom: username,
+                body: newMessage,
+                channelName: dmChatName,
+            },
+            headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`}
+        });
+        console.log(response.data)
+        setNewMessage('');
     };
+
+    const persistMessage = (message) => {
+        // const response = axios({
+        //     method: 'post',
+        //     url: 'http://localhost:8080/message/create',
+        //     data: {
+        //         body: message,
+        //     },
+        //     headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`}
+        // });
+        // console.log(response.data)
+    }
 
     useEffect( async () => {
         console.log(token);
-        const response = await axios.get('/channel-controller/readAll', {
+        const response = await axios({
+            method: 'get',
+            url: `http://localhost:8080/message/find/${dmChatName}`,
             headers: { 'Authorization': `Bearer ${token}`}
         });
-        if (response.data) {
-            const dmChannels = response.data.filter(channel => channel.type === 'DM');
-            const dmChannelWithChosenUser = dmChannels.filter(channel => channel.name.toLowerCase().includes())
+        console.log(response)
+        if (response.data.length > 0) {
+            response.data.map(message => sendMessage(message.body));
         }
+        // if (response.data) {
+        //     const dmChannels = response.data.filter(channel => channel.type === 'DM');
+        //     const dmChannelWithChosenUser = dmChannels.filter(channel => channel.name.toLowerCase().includes())
+        // }
     }, [])
 
     return (
@@ -39,14 +72,40 @@ export const DmChat = (props) => {
                 <SearchBar  />
             </div>
             <h1>DM Chat {dmChatName}</h1>
-            <textarea
+            {/* <textarea
                 value={newMessage}
                 onChange={handleNewMessageChange}
                 placeholder="Write message..."
                 className="new-message-input-field" />
             <button onClick={handleSendMessage} className="send-message-button">
                 Send
-            </button>
+            </button> */}
+            <h1 className="room-name">Room: {dmChatName}</h1>
+            <div className="messages-container">
+                <ol className="messages-list">
+                {messages.map((message, i) => (
+                    <li key={i} className={`message-item ${
+                    message.ownedByCurrentUser ? "my-message" : "received-message"
+                    }`} >
+                    {username}: {message.body}
+                    </li>
+                    ))}
+                </ol>
+            </div>
+
+            <form>
+            <FormControl>
+                <Input      
+                    value={newMessage}
+                    onChange={handleNewMessageChange}
+                    placeholder="Write message..."
+                    className="new-message-input-field" />
+      
+                <Button disabled={!newMessage} onClick={handleSendMessage} type="submit" className="send-message-button">
+                    Send
+                </Button>
+            </FormControl>
+            </form>
         </div>
     );
 }
