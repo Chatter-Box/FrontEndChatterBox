@@ -46,7 +46,7 @@ export const Register = () => {
             // );
             const response = await axios({
                 method: 'post',
-                url: 'http://localhost:8080/profile/register',
+                url: '/profile/register',
                 data: {
                     firstName: firstName,
                     lastName: lastName,

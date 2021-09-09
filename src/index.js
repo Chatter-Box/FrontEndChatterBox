@@ -23,7 +23,7 @@ ReactDOM.render(
 
         <Route exact path="/chatroom/:roomId" component={ChatRoom} />
 
-        
+        <Route exact path='/message'> <App /> </Route>
 
         <Route exact path='/'> <Login /> </Route>
 
@@ -42,7 +42,6 @@ ReactDOM.render(
 );
 
 
-//<Route exact path='/message'> <App /> </Route>
 
 
 // If you want to start measuring performance in your app, pass a function
