@@ -46,7 +46,7 @@ export const Register = () => {
             // );
             const response = await axios({
                 method: 'post',
-                url: '/profile/register',
+                url: 'http://localhost:8080/profile/register',
                 data: {
                     firstName: firstName,
                     lastName: lastName,
@@ -57,7 +57,7 @@ export const Register = () => {
                 headers: {'Content-Type': 'application/json'}
             });
             console.log(response);
-            if (response.created) {
+            if (response.data) {
                 history.push('/');
             }
                 
