@@ -1,6 +1,6 @@
 import React from "react";
 import {Button, FormControl, Input} from "@material-ui/core";
-import axios from 'axios';
+
 import "./ChatRoom.css";
 import useChat from "../useChat/useChat";
 
@@ -9,17 +9,11 @@ const ChatRoom = (props) => {
   const { messages, sendMessage } = useChat(roomId); // Creates a websocket and manages messaging
   const [newMessage, setNewMessage] = React.useState(""); // Message to be sent
 
-  const handleNewMessageChange =  (event) => {
-
+  const handleNewMessageChange = (event) => {
     setNewMessage(event.target.value);
   };
 
-  const handleSendMessage = async () => {
-    const response = await axios.post('/create');
-    if (response.data) 
-    localStorage.setItem('message', JSON.stringify(response.data));
-    console.log(localStorage.getItem('message'));
-  
+  const handleSendMessage = () => {
     sendMessage(newMessage);
     setNewMessage("");
   };
