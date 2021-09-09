@@ -18,6 +18,8 @@ const ChatRoom = (props) => {
     setNewMessage("");
   };
 
+  
+
   return (
     <div className="chat-room-container">
       <h1 className="room-name">Channel: {roomId}</h1>
