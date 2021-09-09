@@ -18,7 +18,7 @@ export default function Login() {
         event.preventDefault();
         // look for the users info in the database
         try {
-            const response = await axios.post(`/profile/login/${username}/${password}`);
+            const response = await axios.post(`http://localhost8080/profile/login/${username}/${password}`);
             if (response.data.token) {
             localStorage.setItem('user', JSON.stringify(response.data));
             console.log(localStorage.getItem('user'));
