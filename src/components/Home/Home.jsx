@@ -28,7 +28,7 @@ const createChannel = async (event) => {
   setRoomName(event.target.value);
     const response = await axios({
       method: 'post',
-      url: 'http://localhost:8080/channel/create',
+      url: 'http://localhost:8080/channel-controller/create',
       data: {
           name: roomName,
           type: 'CHANNEL',
