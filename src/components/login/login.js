@@ -1,19 +1,41 @@
 import { FormControl, FormHelperText, Input, InputLabel, Grid, TextField, Button, Link, Paper } from '@material-ui/core';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PersonIcon from '@material-ui/icons/Person';
+import { useHistory } from 'react-router';
+import axios from 'axios';
 import './login.css';
 
 export default function Login() {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const history = useHistory();
+    const [messages, setMessages] = useState({});
+    const [isLoading, setLoading] = useState(true);
+    const [wrongCredentials, setWrongCredentials] = useState(false);
 
-    const checkIfUserExists = (event) => {
+    const checkIfUserExists = async (event) => {
         event.preventDefault();
         // look for the users info in the database
-        fetch(`/profile/login/${username}/${password}`)
-            .then(response => response.json())
-            .then(body => body.username === username ? takeUserToProfile() : wrongUsernameOrPassword());
+        try {
+            const response = await axios.post(`http://localhost:8080/profile/login/${username}/${password}`);
+            if (response.data.token) {
+            localStorage.setItem('user', JSON.stringify(response.data));
+            console.log(localStorage.getItem('user'));
+            history.push(`/profile/${response.data.username}`);
+
+            // Take to profile
+        } 
+        } catch (error) {
+            setWrongCredentials(true);
+            setUsername('');
+            setPassword('');
+        }
+        
+        // fetch(`/profile/login/${username}/${password}`)
+        //     .then(response => response.json())
+        //     .then(body => body.username === username ? takeUserToProfile() : wrongUsernameOrPassword());
+
     }
 
     const takeUserToProfile = () => {
@@ -27,6 +49,17 @@ export default function Login() {
         setUsername('');
         setPassword('');
     }
+
+    const goToRegistration = (event) => {
+        event.preventDefault();
+        history.push('/register');
+    }
+
+    const goToAboutUs= (event) => {
+        event.preventDefault();
+        history.push('/aboutUs');
+    }
+
     
     console.log(username);
     console.log(password);
@@ -45,9 +78,13 @@ export default function Login() {
             
                 <Button className='item__position' fullWidth variant='contained' disabled={!username || !password} onClick={checkIfUserExists} size='medium' color='primary'>Login</Button> <br/><br/><br/>
 
-                <Link className='item__position' /*href='Link to registration page'*/>Create a New Account</Link> <br/>
+                <Link className='item__position link' onClick={goToRegistration}>Create a New Account</Link> <br/>
             </Paper>
-            <PersonIcon className='person__icon' /*href='Link to the about me page'*/ style={{fontSize: '100px'}}/>
+            <div>
+              <br></br>
+              <PersonIcon className='person__icon link' onClick={goToAboutUs} style={{fontSize: '100px'}}/> <p className="caption">About Us </p>
+            </div>
+
         </Grid>
     );
 }
