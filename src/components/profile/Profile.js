@@ -198,8 +198,6 @@ const classes = useStyles();
  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 </FormControl>
 </form>
-
-
    <br></br> */}
  <br></br>
    <br></br>
@@ -211,7 +209,7 @@ const classes = useStyles();
       className={classes.gridContainer}
       justify="flex-end"
     >
-      <Grid item lg={12} md={8} sm={4}>
+      <Grid item sm={12} sm={8} md={4}>
         <Cards  />
       </Grid>
     
@@ -239,7 +237,6 @@ const classes = useStyles();
 <br></br>
 
 {/* <div>aurqaaaaaaaaaaaa</div>
-
 <br></br>
 <CardActions>
         <Button variant="outlined" color='secondary' size="large" onClick= {() =>{
@@ -248,9 +245,6 @@ const classes = useStyles();
    > 
    go to channel </Button>
       </CardActions>
-
-
-
       
   <button className="bo"> 
     BUTTON
@@ -281,8 +275,6 @@ Header.propTypes = {
 
 
 export default Header
-
-
 
 
 

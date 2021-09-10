@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import {Button, FormControl, Input} from "@material-ui/core";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import "./ChatRoom.css";
 import useChat from "../useChat/useChat";
 import { useHistory } from 'react-router';
+import axios from 'axios';
+
 
 
 const ChatRoom = (props) => {
@@ -19,16 +21,41 @@ const ChatRoom = (props) => {
     setNewMessage(event.target.value);
   };
 
-  const handleSendMessage = (event) => {
+ 
+  const handleSendMessage = async (event) => {
     event.preventDefault();
     sendMessage(newMessage);
-    setNewMessage("");
-  };
+    const response = await axios({
+        method: 'post',
+        url: 'http://localhost:8080/message/create',
+        data: {
+            profile: user,
+            body: newMessage,
+        },
+        headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`}
+    });
+    console.log(response.data)
+    setNewMessage('');
+};
 
   const goToProfile= (event) => {
     event.preventDefault();
     history.push(`/profile/${username}`);
 }
+
+useEffect( async () => {
+  console.log(token);
+  const response = await axios({
+      method: 'get',
+      url: `http://localhost:8080/message/all`,
+      headers: { 'Authorization': `Bearer ${token}`}
+  });
+  console.log(response)
+  if (response.data.length > 0) {
+      response.data.map(message => sendMessage(message.body));
+  }
+
+}, [])
 
   return (
     
