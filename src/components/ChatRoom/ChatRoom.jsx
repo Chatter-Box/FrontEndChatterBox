@@ -24,16 +24,18 @@ const ChatRoom = (props) => {
  
   const handleSendMessage = async (event) => {
     event.preventDefault();
-    sendMessage(newMessage);
+    //sendMessage(newMessage);
     const response = await axios({
         method: 'post',
         url: 'http://localhost:8080/message/create',
         data: {
-            profile: user,
+            profileSentFrom: username,
             body: newMessage,
+            channelName: roomId,
         },
         headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`}
     });
+    sendMessage(response.data);
     console.log(response.data)
     setNewMessage('');
 };
@@ -52,7 +54,7 @@ useEffect( async () => {
   });
   console.log(response)
   if (response.data.length > 0) {
-      response.data.map(message => sendMessage(message.body));
+      response.data.map(message => sendMessage(message));
   }
 
 }, [])
