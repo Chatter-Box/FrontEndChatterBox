@@ -14,7 +14,7 @@ li {
 }
 
 .dmChat__searchbar {
-    position: fixed;
+    position: absolute;
     left: 3rem;
 }
 
@@ -24,14 +24,14 @@ li {
 }
 
 
-/* p {
+.eachSearch {
     border-bottom: 1px solid black;
     border-left: 1px solid black;
     border-right: 1px solid black;
     margin: 0;
     padding-bottom: .5rem;
     padding-top: .5rem;
-} */
+}
 
 
 .new-message-input-field {

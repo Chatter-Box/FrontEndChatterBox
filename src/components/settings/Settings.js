@@ -6,8 +6,8 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 export default function Settings(){
 
-  const user = JSON.parse(localStorage.getItem('user'));
-  const { id, token, username } = user;
+  // const user = JSON.parse(localStorage.getItem('user'));
+  // const { id, token, username } = user;
   const history = useHistory();
 
   const goToProfile= (event) => {

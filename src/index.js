@@ -14,6 +14,8 @@ import Home from "./components/Home/Home";
 import ChatRoom from "./components/ChatRoom/ChatRoom";
 import { SearchBar } from './components/direct-messages/searchBar';
 import { DmChat } from './components/direct-messages/dmChat';
+import { Channel } from './components/allChannels/channel';
+import { AllChannels } from './components/allChannels/all-channels';
 
 
 ReactDOM.render(
@@ -40,6 +42,8 @@ ReactDOM.render(
         <Route exact path='/searchbar' component={SearchBar} />
 
         <Route exact path='/dm/:dmChatName' component={DmChat} />
+
+        <Route exact path='/channels' component={AllChannels} />
 
       </Switch>
     </Router>
