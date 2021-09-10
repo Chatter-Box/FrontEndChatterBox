@@ -6,6 +6,9 @@ import './Profile.css';
 import { useHistory, Link } from 'react-router-dom'; 
 import Cards from './Cards';
 import { Grid, Button, makeStyles, CardActions } from "@material-ui/core";
+import { SearchBar } from '../direct-messages/searchBar';
+
+
 // import Headerss from './Headerss';
 //import Settings from './Settings';
 
@@ -39,7 +42,8 @@ let history = useHistory();
 //history.push('/settings')
 
 
-
+const user = JSON.parse(localStorage.getItem('user'));
+const { id, token, username } = user;
 
 const useStyles = makeStyles({
   gridContainer: {
@@ -49,11 +53,18 @@ const useStyles = makeStyles({
 });
 const classes = useStyles();
 
+
+const goToDM= (event) => {
+  event.preventDefault();
+  history.push(`/searchbar`);
+}
+
   return (
 
     <header className='header'>
       <div>
-           <h1 className="h__one"> usr name</h1>
+      <SearchBar></SearchBar>
+           <h1 className="h__one"> Good to see you {username}!</h1>
         </div>
    
       
@@ -78,6 +89,7 @@ const classes = useStyles();
        </div>
    )}
  </div>
+
  {imagePreview && <button onClick={() => setImagePreview(null)}>Remove image </button>}
 
 
@@ -198,8 +210,6 @@ const classes = useStyles();
  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 </FormControl>
 </form>
-
-
    <br></br> */}
  <br></br>
    <br></br>
@@ -211,7 +221,7 @@ const classes = useStyles();
       className={classes.gridContainer}
       justify="flex-end"
     >
-      <Grid item lg={12} md={8} sm={4}>
+      <Grid item sm={12} sm={8} md={4}>
         <Cards  />
       </Grid>
     
@@ -235,11 +245,9 @@ const classes = useStyles();
           // text={showAdd ? 'Close' : 'edit profile'}
           // onClick={onAdd} */}
        
-      
 <br></br>
 
 {/* <div>aurqaaaaaaaaaaaa</div>
-
 <br></br>
 <CardActions>
         <Button variant="outlined" color='secondary' size="large" onClick= {() =>{
@@ -248,9 +256,6 @@ const classes = useStyles();
    > 
    go to channel </Button>
       </CardActions>
-
-
-
       
   <button className="bo"> 
     BUTTON
@@ -265,6 +270,8 @@ const classes = useStyles();
     </header>
   )
 }
+
+
 
 Header.defaultProps = {
   title: 'userName',
@@ -281,8 +288,6 @@ Header.propTypes = {
 
 
 export default Header
-
-
 
 
 
