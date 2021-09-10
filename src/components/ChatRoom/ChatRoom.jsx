@@ -49,7 +49,7 @@ useEffect( async () => {
   console.log(token);
   const response = await axios({
       method: 'get',
-      url: `http://localhost:8080/message/all`,
+      url: `http://localhost:8080/message/find/${roomId}`,
       headers: { 'Authorization': `Bearer ${token}`}
   });
   console.log(response)
