@@ -1,7 +1,6 @@
 import React from 'react';
 import './aboutUs.css';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import {Grid} from '@material-ui/core';
 import { useHistory } from 'react-router';
 
 
@@ -33,8 +32,7 @@ return (
         after some long nights and great collaboration ChatterBox was born! Chatter on mates! 
         </h3>
       </div>
-      {/* style="text-align:center" */}
-    <h1>Our Team</h1>
+    <h1><em>Our Team</em></h1>
     <div class="row">  
       <div class="column">
         <div class="card">
