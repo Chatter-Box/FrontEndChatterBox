@@ -14,9 +14,7 @@ export default function Settings(){
     event.preventDefault();
     history.goBack();
 } 
-
-
-    
+     
 return (
 <div>    
 <div class="container light-style flex-grow-1 container-p-y">
@@ -45,7 +43,13 @@ return (
                 <div class="media-body ml-4">
                   <label class="btn btn-outline-primary">
                     Upload new photo
-                    <input type="file" class="account-settings-fileinput"/>
+                    <form action="/action_page.php">
+                      <label for="img">Select image:</label>
+                      <input type="file" id="img" name="img" accept="image/*"/>
+                      <input type="submit"/>
+                    </form>
+                    {/* <input type="file" class="account-settings-fileinput"/> */}
+                    
                   </label> &nbsp;
                   
 
