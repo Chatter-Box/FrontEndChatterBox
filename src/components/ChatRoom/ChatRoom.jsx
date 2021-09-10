@@ -62,9 +62,9 @@ useEffect( async () => {
   return (
     
     <div className="chat-room-container">
-      <h1 className="room-name">Channel: {roomId}</h1>
-      <h2 className="go-back"><ArrowBackIcon className='ArrowBack_icon link' onClick={goToProfile}/>  
-      Return To Profile </h2>
+      <h5 className="room-name">Channel: {roomId}</h5>
+      <h5 className="go-back"><ArrowBackIcon className='ArrowBack_icon link' onClick={goToProfile}/>  
+      Return To Profile </h5>
       <div className="messages-container">
       <div>
 

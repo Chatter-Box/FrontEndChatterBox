@@ -11,6 +11,9 @@
 
 .room-name {
     margin-top: 0;
+    color: #000000;
+    font-size: 20px;
+
 }
 
 .messages-container {
