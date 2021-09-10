@@ -98,21 +98,7 @@ const goToDM= (event) => {
 
 
 
-{/* 
-      <div class="topnav">
-        <a class="active" href="#home">Home</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
-    </div> */}
 
-
-{/* <Button color='red' text=' Edit Profile' onClick= {() =>{
-   history.push("/settings");
-   }}
-   > 
-   Profile
-   </Button>  */}
 
    {/* -------/////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
 <CardActions> 
@@ -187,30 +173,11 @@ const goToDM= (event) => {
 
   <br></br>
    <br></br>
-{/* <form>
-<FormControl>
-  <Button className="bot" variant="outlined" color="primary"  endIcon={<Icon>send</Icon>} type='submit' onClick= {() =>{
-   history.push("/messages");
-   }}
-   > 
-  Messages </Button>
- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-</FormControl>
-</form> */}
+
 
 {/* ---------------------------------------------------------------------------------------------------------------------------------------------- */}
 
-{/* <form>
-<FormControl>
-  <Button className="bot2"  variant="outlined" color="primary"  endIcon={<Icon>send</Icon>} type='submit' onClick= {() =>{
-   history.push("/messages");
-   }}
-   > 
-  Messages </Button>
- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-</FormControl>
-</form>
-   <br></br> */}
+
  <br></br>
    <br></br>
 
@@ -228,43 +195,9 @@ const goToDM= (event) => {
     </Grid>
 
 
-   
-
-
-    
- 
-
-
- 
   
-      {/* <img className= "card__img" width="60" height="40" src = {img2} alt=""/>
-      <h3>paolaaaaa</h3> */}
-     
-     <br></br>
-          {/* // color={showAdd ? 'red' : 'green'}
-          // text={showAdd ? 'Close' : 'edit profile'}
-          // onClick={onAdd} */}
        
 <br></br>
-
-{/* <div>aurqaaaaaaaaaaaa</div>
-<br></br>
-<CardActions>
-        <Button variant="outlined" color='secondary' size="large" onClick= {() =>{
-   history.push("/messages");
-   }}
-   > 
-   go to channel </Button>
-      </CardActions>
-      
-  <button className="bo"> 
-    BUTTON
-   <div> 
-       </div> 
-  </button>
- */}
-
-
 
 
     </header>
