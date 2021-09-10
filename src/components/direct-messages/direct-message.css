@@ -23,6 +23,7 @@ li {
     margin: auto;
 }
 
+
 /* p {
     border-bottom: 1px solid black;
     border-left: 1px solid black;
@@ -31,6 +32,7 @@ li {
     padding-bottom: .5rem;
     padding-top: .5rem;
 } */
+
 
 .new-message-input-field {
     max-height: 50%;
