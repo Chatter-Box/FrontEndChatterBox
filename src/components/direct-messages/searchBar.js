@@ -78,7 +78,7 @@ export const SearchBar = () => {
                 if (search === '') return 
                 if (profile.username.toLowerCase().includes(search.toLowerCase())) return profile;
             })
-            .map(profile => <p onClick={() => handleClick(profile)} key={profile.id}>{profile.username}</p>)}
+            .map(profile => <p className='eachSearch' onClick={() => handleClick(profile)} key={profile.id}>{profile.username}</p>)}
         </>
     );
 }

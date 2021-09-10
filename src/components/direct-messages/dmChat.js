@@ -22,7 +22,7 @@ export const DmChat = (props) => {
 
     const handleSendMessage = async (event) => {
         event.preventDefault();
-        sendMessage(newMessage);
+        //sendMessage(newMessage);
         const response = await axios({
             method: 'post',
             url: 'http://localhost:8080/message/create',
@@ -34,6 +34,7 @@ export const DmChat = (props) => {
             headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`}
         });
         console.log(response.data)
+        sendMessage(response.data);
         setNewMessage('');
     };
 
@@ -58,7 +59,7 @@ export const DmChat = (props) => {
         });
         console.log(response)
         if (response.data.length > 0) {
-            response.data.map(message => sendMessage(message.body));
+            response.data.map(message => sendMessage(message));
         }
         // if (response.data) {
         //     const dmChannels = response.data.filter(channel => channel.type === 'DM');
@@ -68,10 +69,13 @@ export const DmChat = (props) => {
 
     return (
         <div className='text__align'>
+            
             <div className='dmChat__searchbar'>
                 <SearchBar  />
             </div>
-            <h1>DM Chat {dmChatName}</h1>
+           
+            <h1 className='dm-chat-name'>DM Chat {dmChatName}</h1>
+            
             {/* <textarea
                 value={newMessage}
                 onChange={handleNewMessageChange}
@@ -80,14 +84,12 @@ export const DmChat = (props) => {
             <button onClick={handleSendMessage} className="send-message-button">
                 Send
             </button> */}
-            <h1 className="room-name">Room: {dmChatName}</h1>
             <div className="messages-container">
                 <ol className="messages-list">
                 {messages.map((message, i) => (
-                    <li key={i} className={`message-item ${
-                    message.ownedByCurrentUser ? "my-message" : "received-message"
-                    }`} >
-                    {username}: {message.body}
+                    <li key={i} className='message-item' >
+                    <p>{username} @ {message.timestamp}</p>
+                    <p>{message.body}</p>
                     </li>
                     ))}
                 </ol>

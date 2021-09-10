@@ -37,12 +37,13 @@
 }
 
 .message-item {
-    width: 55%;
     margin: 8px;
     padding: 12px 8px;
     word-break: break-word;
     border-radius: 4px;
     color: white;
+    background-color: #3f4042;
+
 }
 
 .my-message {
