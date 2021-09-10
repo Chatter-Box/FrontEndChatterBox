@@ -1,6 +1,7 @@
 import React from 'react';
 import './aboutUs.css';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import {Grid} from '@material-ui/core';
 import { useHistory } from 'react-router';
 
 
@@ -16,38 +17,40 @@ export default function AboutUs() {
 
 return (
   <div>  
-    <div>
-      <p><ArrowBackIcon className='ArrowBack_icon link' onClick={goToLogin}/>  
-      Return To Login</p>
-    </div>
+    <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    }}>
+    <ArrowBackIcon className='ArrowBack_icon link' onClick={goToLogin}/>
+      <span className='ArrowBack_icon'>Return to Login</span>
+      </div>     
       <br></br>
-      {/* <img src="ChatterBoxLogo.png" className="Logo" alt="ChatterBox Logo" width="192" height="160" />  */}
-
-      <div class="about-section">
-        <h1>Our Vision</h1>
-        <p>ChatterBox was born out of the desire to create a better chat app. We wanted a fun and easy 
+      <div id="about_section">
+        <h1><em>Our Vision</em></h1>
+        <h3>ChatterBox was born out of the desire to create a better chat app. We wanted a fun and easy 
         outlet to speak with our friends. We checked out the competition but nothing was up to snuff, 
-        after some long nights and great collaboration Chatter was born! 
-        </p>
+        after some long nights and great collaboration ChatterBox was born! Chatter on mates! 
+        </h3>
       </div>
       {/* style="text-align:center" */}
-    <h2 >Our Team</h2>
+    <h1>Our Team</h1>
     <div class="row">  
       <div class="column">
         <div class="card">
           <div class="container">
-            <h2>Tatiana DeAngelo</h2>
-            <p class="title">Co-Founder</p>
-            <img src="Tatiana.jpg" alt="Tatiana DeAngelo" width="250" height="225"/>
-            <p>Tatiana DeAngelo, Bachelor's of Science Degree in Engineering, 
-                minor in Mathematics with magna cum laude honors from Delaware State University.
-                Former High School Math teacher for 4 years, taught subjects including: Calculus, 
-                Statistics, and Algebra II. Currently working on rotating teams of 5 for projects 
-                such as a casino, uttilizing knowledge of Core Java, OOP, TDD, and Agile methodologies 
-                to create working applications. Languages: Java, TypeScript, JavaScript Frameworks: 
-                Spring Boot, Hibernate, Angular, Ionic, Apache Spark and React.</p>
-          <a href="https://www.linkedin.com/in/tatiana-deangelo/"> Checkout my LinkedIn! </a>          
-          </div>
+            <h2>Tatiana DeAngelo, </h2>
+              <p class="title">Co-Founder</p>
+              <img src="Tatiana.jpg" alt="Tatiana DeAngelo" width="250" height="225"/>
+              <p>Tatiana DeAngelo, Bachelor's of Science Degree in Engineering, 
+                  minor in Mathematics with magna cum laude honors from Delaware State University.
+                  Former High School Math teacher for 4 years, taught subjects including: Calculus, 
+                  Statistics, and Algebra II. Currently working on rotating teams of 5 for projects 
+                  such as a casino, uttilizing knowledge of Core Java, OOP, TDD, and Agile methodologies 
+                  to create working applications. Languages: Java, TypeScript, JavaScript Frameworks: 
+                  Spring Boot, Hibernate, Angular, Ionic, Apache Spark and React.</p>
+            </div> 
+          <a className = "linkedIn" href="https://www.linkedin.com/in/tatiana-deangelo/"> Connect With Me</a>          
         </div>
       </div>
       <br></br>
