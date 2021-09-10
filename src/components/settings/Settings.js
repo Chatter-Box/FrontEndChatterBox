@@ -1,13 +1,27 @@
 import React from 'react';
 import './Settings.css';
+import { useHistory } from 'react-router';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 
 export default function Settings(){
+
+  const user = JSON.parse(localStorage.getItem('user'));
+  const { id, token, username } = user;
+  const history = useHistory();
+
+  const goToProfile= (event) => {
+    event.preventDefault();
+    history.goBack();
+} 
+
+
     
 return (
 <div>    
 <div class="container light-style flex-grow-1 container-p-y">
-
+<h2 className="go-back"><ArrowBackIcon className='ArrowBack_icon link' onClick={goToProfile}/>  
+      Return To Profile </h2>
 <h4 class="font-weight-bold py-3 mb-4">
   Settings Page
 </h4>

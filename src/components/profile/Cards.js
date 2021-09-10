@@ -38,7 +38,7 @@ export default function OutlinedCard() {
     <Card className={classes.root} variant="outlined">
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Main Channel
+          Welcome Channel
         </Typography>
        
       </CardContent>
@@ -56,7 +56,7 @@ export default function OutlinedCard() {
 <Card className={classes.root} variant="outlined">
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Other channel
+          Main channel
         </Typography>
        
       </CardContent>
@@ -75,7 +75,7 @@ export default function OutlinedCard() {
 <Card className={classes.root} variant="outlined">
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Create channel
+          Find channel
         </Typography>
        
       </CardContent>
