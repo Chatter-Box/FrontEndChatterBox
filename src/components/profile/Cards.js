@@ -38,7 +38,7 @@ export default function OutlinedCard() {
     <Card className={classes.root} variant="outlined">
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Welcome Channel
+          View all Channels
         </Typography>
        
       </CardContent>
@@ -47,7 +47,7 @@ export default function OutlinedCard() {
    history.push("/message");
    }}
    > 
-   go to channel </Button>
+    channels </Button>
       </CardActions>
     </Card>
 
@@ -56,7 +56,7 @@ export default function OutlinedCard() {
 <Card className={classes.root} variant="outlined">
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Main channel
+          Find channel
         </Typography>
        
       </CardContent>
@@ -75,7 +75,7 @@ export default function OutlinedCard() {
 <Card className={classes.root} variant="outlined">
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Find channel
+          Create channel
         </Typography>
        
       </CardContent>
