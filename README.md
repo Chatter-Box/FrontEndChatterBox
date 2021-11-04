@@ -1,24 +1,13 @@
 # Micro Web Application - Server
-## Objective - to create an implementation of a small web service
-## Purpose - to demonstrate the construction of a full-stacked web-application
-# Developmental Notes
-## Minimum Tech Stack
-### Wireframe - Mockflow
-### Frontend - Angular / React
-### Business Logic - Java
-### Data Layer - MySQL
-### Cloud - Heroku/AWS/Google
-## Installation
-Use Spring Initializr to create an starting point for you application
 
-# Project Topics
-## TCP Application
-- User Stories to Fulfill
-    - As a client, (not logged in) I
-    - can send messages to a peer.
-    - can view default channels
-    - can view all accessible channels
-    - can view messages live as they are received
+## Objective - to create an implementation of a small web service
+
+## Minimum Tech Stack
+
+### Frontend - React.JS
+### Business Logic - Java/Spring
+### Data Layer - MySQL
+### Cloud - Heroku
 
 # Welcome to ChatterBox!
 ## Come talk to your friends in channels with similiar interests as you!
